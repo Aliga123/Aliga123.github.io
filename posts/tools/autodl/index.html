@@ -7,7 +7,7 @@
 <meta name="robots" content="index, follow">
 <title>AutoDL | aliga&#39;s Blog</title>
 <meta name="keywords" content="">
-<meta name="description" content="开发个人blog网站的工具">
+<meta name="description" content="租用GPU服务器的云平台">
 <meta name="author" content="aliga">
 <link rel="canonical" href="https://Aliga123.github.io/posts/tools/autodl/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
@@ -78,7 +78,7 @@ var _hmt = _hmt || [];
   
 
 <meta property="og:title" content="AutoDL" />
-<meta property="og:description" content="开发个人blog网站的工具" />
+<meta property="og:description" content="租用GPU服务器的云平台" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://Aliga123.github.io/posts/tools/autodl/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2024-07-27T08:27:55+08:00" />
@@ -86,7 +86,7 @@ var _hmt = _hmt || [];
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="AutoDL"/>
-<meta name="twitter:description" content="开发个人blog网站的工具"/>
+<meta name="twitter:description" content="租用GPU服务器的云平台"/>
 
 
 <script type="application/ld+json">
@@ -123,12 +123,12 @@ var _hmt = _hmt || [];
   "@type": "BlogPosting",
   "headline": "AutoDL",
   "name": "AutoDL",
-  "description": "开发个人blog网站的工具",
+  "description": "租用GPU服务器的云平台",
   "keywords": [
     ""
   ],
-  "articleBody": "AutoDL使用指南 1.配置环境\n创建实例，选择如下图操作。如果选择pytorch就是在base环境下安装一个pytorch。\r无卡模式开机。打开控制台激活conda。\n1.输入：vim ~/.bashrc。 2.按i进入编辑模式，在最后加上：source /root/miniconda3/etc/profile.d/conda.sh，然后按ESC退出编辑模型，再输入:wq保存并退出。最后再命令行输入bash刷新一下或者重启一个命令行，进入环境：conda activate base。\r创建一个自己虚拟环境并激活（教程自己查）。安装pytorch（注意要和自己实例的cuda版本一样。nvidia-smi （该命令需要开启显卡）查看显卡驱动cuda版本【\u003e=】，nvcc -V查看从nvidia下载的cuda版本【=】torch的cuda版本）。\n安装jupyter包，输入：pip install jupyter d2l。\n最后平台上创建一个当前环境下的jupyter快速启动页面。\n1.在自己的环境中，输入：conda install ipykernel。输入：ipython kernel install --user --name=环境名，name取什么都可以，这里取环境名是为了方便辨别是哪个环境下的jupyter。 2.刷新页面。 2.微调7b模型\n将colab的模型在juputer运行，出现连接huggingface超时，需要设置加速。但下载数据很慢只有1M/s。下载会保存在cache里面，系统盘的容量是不够的。\r下载模型和数据集到本地，依次运行如下命令。\n（1）第一次需要设置一下配置。\ncurl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | sudo bash\nsudo apt-get install git-lfs\nsource /etc/network_turbo\ngit lfs install\n（2）下载数据\ngit clone https://huggingface.co/datasets/mlabonne/guanaco-llama2-1k （3）下载模型\ngit clone https://huggingface.co/NousResearch/Llama-2-7b-chat-hf\n直接clone，会有一些文件没有下载成功，剩下的手动使用wget下载。\n加载本地数据库或模型\n（1）我们需要将模型文件夹和数据集文件夹放在当前运行的py文件说在目录，然后将以前的源代码的name（从huggingface下载并加载）换成path（从本地加载）\r运行代码\n可以成功训练\r保存模型出现内存不足，后续更换24g内存的显卡。\r克隆到24g内存显卡试一下，成功执行。\n保存模型\n（1）直接保存到本地，成功。\r（2）上传保存到huggingface，失败。\r加载保存的模型，进行推理\n如下代码可以成功推理，不过下面的这个提问推理的时间有些长，大约3分钟左右，可能应为要回答的很容太多了。\r",
-  "wordCount" : "959",
+  "articleBody": "AutoDL使用指南 这篇blog主要记录如何使用云服务平台微调本地模型。\n1.配置环境\n创建实例，选择如下图操作。如果选择pytorch就是在base环境下安装一个pytorch。\r无卡模式开机。打开控制台激活conda。\n1.输入：vim ~/.bashrc。 2.按i进入编辑模式，在最后加上：source /root/miniconda3/etc/profile.d/conda.sh，然后按ESC退出编辑模型，再输入:wq保存并退出。最后再命令行输入bash刷新一下或者重启一个命令行，进入环境：conda activate base。\r创建一个自己虚拟环境并激活（教程自己查）。安装pytorch（注意要和自己实例的cuda版本一样。nvidia-smi （该命令需要开启显卡）查看显卡驱动cuda版本【\u003e=】，nvcc -V查看从nvidia下载的cuda版本【=】torch的cuda版本）。\n安装jupyter包，输入：pip install jupyter d2l。\n最后平台上创建一个当前环境下的jupyter快速启动页面。\n1.在自己的环境中，输入：conda install ipykernel。输入：ipython kernel install --user --name=环境名，name取什么都可以，这里取环境名是为了方便辨别是哪个环境下的jupyter。 2.刷新页面。 2.微调7b模型\n将colab的模型在juputer运行，出现连接huggingface超时，需要设置加速。但下载数据很慢只有1M/s。下载会保存在cache里面，系统盘的容量是不够的。\r下载模型和数据集到本地，依次运行如下命令。\n（1）第一次需要设置一下配置。\ncurl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | sudo bash\nsudo apt-get install git-lfs\nsource /etc/network_turbo\ngit lfs install\n（2）下载数据\ngit clone https://huggingface.co/datasets/mlabonne/guanaco-llama2-1k （3）下载模型\ngit clone https://huggingface.co/NousResearch/Llama-2-7b-chat-hf\n直接clone，会有一些文件没有下载成功，剩下的手动使用wget下载。\n加载本地数据库或模型\n（1）我们需要将模型文件夹和数据集文件夹放在当前运行的py文件说在目录，然后将以前的源代码的name（从huggingface下载并加载）换成path（从本地加载）\r运行代码\n可以成功训练\r保存模型出现内存不足，后续更换24g内存的显卡。\r克隆到24g内存显卡试一下，成功执行。\n保存模型\n（1）直接保存到本地，成功。\r（2）上传保存到huggingface，失败。\r加载保存的模型，进行推理\n如下代码可以成功推理，不过下面的这个提问推理的时间有些长，大约3分钟左右，可能应为要回答的很容太多了。\r",
+  "wordCount" : "985",
   "inLanguage": "zh",
   "datePublished": "2024-07-27T08:27:55+08:00",
   "dateModified": "2024-07-27T08:27:55+08:00",
@@ -264,7 +264,7 @@ var _hmt = _hmt || [];
                 AutoDL
             </h1>
             <div class="post-description">
-                开发个人blog网站的工具
+                租用GPU服务器的云平台
             </div>
             <div class="post-meta">
 
@@ -298,7 +298,7 @@ var _hmt = _hmt || [];
     
     <span id="post_meta_style_3">
         <span class="fa fa-file-word-o"></span>
-        <span>959字
+        <span>985字
             &nbsp;&nbsp;
         </span>
     </span>
@@ -447,19 +447,20 @@ var _hmt = _hmt || [];
     }
 </script>
         <div class="post-content"><h2 id="autodl使用指南">AutoDL使用指南<a hidden class="anchor" aria-hidden="true" href="#autodl使用指南">#</a></h2>
+<p>这篇blog主要记录如何使用云服务平台微调本地模型。</p>
 <ul>
 <li>
 <p>1.配置环境</p>
 <ul>
 <li>
-<p>创建实例，选择如下图操作。如果选择pytorch就是在base环境下安装一个pytorch。<img loading="lazy" src="https://api2.mubu.com/v3/document_image/7242fe3a-51ab-4f0b-9c98-7a1f99a7ac89-23805379.jpg" alt="img"  />
+<p>创建实例，选择如下图操作。如果选择pytorch就是在base环境下安装一个pytorch。<img loading="lazy" src="img/7242fe3a-51ab-4f0b-9c98-7a1f99a7ac89-23805379.jpg" alt="img"  />
 </p>
 </li>
 <li>
 <p>无卡模式开机。打开控制台激活conda。</p>
 <ul>
 <li>1.输入：vim ~/.bashrc。</li>
-<li>2.按<code>i</code>进入编辑模式，在最后加上：<code>source /root/miniconda3/etc/profile.d/conda.sh</code>，然后按ESC退出编辑模型，再输入<code>:wq</code>保存并退出。最后再命令行输入<code>bash</code>刷新一下或者重启一个命令行，进入环境：<code>conda activate base</code>。<img loading="lazy" src="https://api2.mubu.com/v3/document_image/c8509dc5-9d25-4de9-90d3-68008f90c91c-23805379.jpg" alt="img"  />
+<li>2.按<code>i</code>进入编辑模式，在最后加上：<code>source /root/miniconda3/etc/profile.d/conda.sh</code>，然后按ESC退出编辑模型，再输入<code>:wq</code>保存并退出。最后再命令行输入<code>bash</code>刷新一下或者重启一个命令行，进入环境：<code>conda activate base</code>。<img loading="lazy" src="img/c8509dc5-9d25-4de9-90d3-68008f90c91c-23805379.jpg" alt="img"  />
 </li>
 </ul>
 </li>
@@ -482,7 +483,7 @@ var _hmt = _hmt || [];
 <p>2.微调7b模型</p>
 <ul>
 <li>
-<p>将colab的模型在juputer运行，出现连接huggingface超时，需要设置加速。但下载数据很慢只有1M/s。下载会保存在cache里面，系统盘的容量是不够的。<img loading="lazy" src="https://api2.mubu.com/v3/document_image/b13c0c7a-66ec-4225-8ea4-4819ff7adabc-23805379.jpg" alt="img"  />
+<p>将colab的模型在juputer运行，出现连接huggingface超时，需要设置加速。但下载数据很慢只有1M/s。下载会保存在cache里面，系统盘的容量是不够的。<img loading="lazy" src="img/b13c0c7a-66ec-4225-8ea4-4819ff7adabc-23805379.jpg" alt="img"  />
 </p>
 </li>
 <li>
@@ -527,7 +528,7 @@ var _hmt = _hmt || [];
 <li>
 <p>加载本地数据库或模型</p>
 <ul>
-<li>（1）我们需要将模型文件夹和数据集文件夹放在当前运行的py文件说在目录，然后将以前的源代码的name（从huggingface下载并加载）换成path（从本地加载）<img loading="lazy" src="https://api2.mubu.com/v3/document_image/8e5e9c5a-c259-49bd-8c27-3f511e4c22ef-23805379.jpg" alt="img"  />
+<li>（1）我们需要将模型文件夹和数据集文件夹放在当前运行的py文件说在目录，然后将以前的源代码的name（从huggingface下载并加载）换成path（从本地加载）<img loading="lazy" src="img/8e5e9c5a-c259-49bd-8c27-3f511e4c22ef-23805379.jpg" alt="img"  />
 </li>
 </ul>
 </li>
@@ -535,11 +536,11 @@ var _hmt = _hmt || [];
 <p>运行代码</p>
 <ul>
 <li>
-<p>可以成功训练<img loading="lazy" src="https://api2.mubu.com/v3/document_image/bf7b1e44-db7d-4f9d-8be4-e0600e330f20-23805379.jpg" alt="img"  />
+<p>可以成功训练<img loading="lazy" src="img/bf7b1e44-db7d-4f9d-8be4-e0600e330f20-23805379.jpg" alt="img"  />
 </p>
 </li>
 <li>
-<p>保存模型出现内存不足，后续更换24g内存的显卡。<img loading="lazy" src="https://api2.mubu.com/v3/document_image/3af58add-e875-4c7f-9ac0-00ee5a9ff7c3-23805379.jpg" alt="img"  />
+<p>保存模型出现内存不足，后续更换24g内存的显卡。<img loading="lazy" src="img/3af58add-e875-4c7f-9ac0-00ee5a9ff7c3-23805379.jpg" alt="img"  />
 </p>
 </li>
 <li>
@@ -551,11 +552,11 @@ var _hmt = _hmt || [];
 <p>保存模型</p>
 <ul>
 <li>
-<p>（1）直接保存到本地，成功。<img loading="lazy" src="https://api2.mubu.com/v3/document_image/42f5f0b9-52e6-4508-9ceb-8fa9f483fb9a-23805379.jpg" alt="img"  />
+<p>（1）直接保存到本地，成功。<img loading="lazy" src="img/42f5f0b9-52e6-4508-9ceb-8fa9f483fb9a-23805379.jpg" alt="img"  />
 </p>
 </li>
 <li>
-<p>（2）上传保存到huggingface，失败。<img loading="lazy" src="https://api2.mubu.com/v3/document_image/cd531860-1ecf-4f96-bbe9-ef58e9a9a226-23805379.jpg" alt="img"  />
+<p>（2）上传保存到huggingface，失败。<img loading="lazy" src="img/cd531860-1ecf-4f96-bbe9-ef58e9a9a226-23805379.jpg" alt="img"  />
 </p>
 </li>
 </ul>
@@ -563,7 +564,7 @@ var _hmt = _hmt || [];
 <li>
 <p>加载保存的模型，进行推理</p>
 <ul>
-<li>如下代码可以成功推理，不过下面的这个提问推理的时间有些长，大约3分钟左右，可能应为要回答的很容太多了。<img loading="lazy" src="https://api2.mubu.com/v3/document_image/d28249c6-ee62-47b2-ae22-f5292652fd7e-23805379.jpg" alt="img"  />
+<li>如下代码可以成功推理，不过下面的这个提问推理的时间有些长，大约3分钟左右，可能应为要回答的很容太多了。<img loading="lazy" src="img/d28249c6-ee62-47b2-ae22-f5292652fd7e-23805379.jpg" alt="img"  />
 </li>
 </ul>
 </li>
