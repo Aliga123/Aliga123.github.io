@@ -127,8 +127,8 @@ var _hmt = _hmt || [];
   "keywords": [
     ""
   ],
-  "articleBody": "简介 本篇blog主要内容：零基础对大佬搭建好的hugo项目进行使用和部署，并修改成自己的hugo和搭配Typora编写blog。\n1.安装git、hugo git安装不多介绍，下载网址：https://git-scm.com/\nhugo安装步骤如下：\n（1）在releases里面需要和自己电脑匹配的版本。（例如我的是hugo_0.128.2_windows-amd64.zip） （2）创建一个用于存放hugo的文件夹，并且在该文件里面创建bin、Sites两个文件夹。 （3）将下载好的hugo解压到bin文件夹里面（解压后就一个hugo.exe文件）。 （4）将hugo配置到环境变量里面。注意需要将用户变量和系统变量的paht都配置一下（也就是在它们两个的path里面都添加…\\bin地址）。 （5）在命令行或bash输入hugo version检查时候安装成功。 2.拉取项目 （1）打开命令行或bash（个人喜欢用bash，后面只提到bash），进入到刚刚创建的Sites文件目录下。 （2）使用git命令拉取Sulv大佬的项目：git clone https://github.com/xyming108/sulv-hugo-papermod.git 。项目会保存在Sites目录下。 （3）进入到项目目录：cd sulv-hugo-papermod （4）拉取hugo-PaperMod主题：git submodule update --init（子模块的git地址以及存在在.git文件里面，所有直接运行这个命令） （5）cd ..退回到项目目录下，再本地启动hugo服务：hugo server -D 或 hugo server -t hugo-PaperMod --buildDrafts （6）登录http://localhost:1313/查看是否本地启动成功 3.部署到GitHub云端 （1）在自己的GitHub上创建一个空仓库。仓库名需要注意前面一段要和GitHub账号名字相同，后面都是固定.github.io。例如我的GitHub账号叫Aliaga123，创建的仓库名Aliga123.github.io\n（2）在目录sulv-hugo-papermod下运行命令：hugo --theme=hugo-PaperMod --baseURL=\"https://Aliga123.github.io\" --buildDrafts。注意，Aliga123.github.io是我的仓库名，换成你的。\n（3）cd public进行到public目录，提交到自己的仓库：\ngit init git remote add origin https://github.com/Aliga123/Aliga123.github.io.git 或者 （git remote add origin git@github.com:Aliga123/Aliga123.github.io.git，按理说这个应该也可行，但是我这个测试了不行） git add . git commit -m \"add my notes\" git push -u origin master 或者 git push（这个测试出现权限拒绝访问） 上传成功后，需要等待一段时间就可以在在网络访问：https://aliga123.github.io/。如果等待一段时间还是访问不了，那就重新提交一下试试。\n4.将Hugo修改成自己的内容，创建md文件 主页页面设置都在config.yml里面，修改里面的设置换成自己的。注意，修改或添加新的文章分类后，要保证文件夹名和yml里面的路径一致。\n可以直接在content/posts里面仿照给的示例编写或者修改自己md文件文件。创建新的分类文件名要小写。\n修改完成自己的后，记得删掉原public文件。因为重复提交不会删除原来的，而是将修改认定为新的添加进去。\n开始创建md文件编写blog：\n（1）直接使用typora在对应位置创建md文件，复制其他md文件的前缀后修改：\ntitle: \"Hugo\" date: 2024-07-27T21:27:55+08:00 lastmod: 2024-07-27T21:27:55+08:00 author: [\"aliga\"] keywords: - categories: # 没有分类界面可以不填写 - tags: # 标签 - description: \"开发个人blog网站的工具\" weight: slug: \"\" draft: false # 是否为草稿 comments: true # 本页面是否显示评论 reward: true # 打赏 mermaid: true #是否开启mermaid showToc: true # 显示目录 TocOpen: true # 自动展开目录 hidemeta: false # 是否隐藏文章的元信息，如发布日期、作者等 disableShare: true # 底部不显示分享栏 showbreadcrumbs: true #顶部显示路径 cover: image: \"\" #图片路径例如：posts/tech/123/123.png zoom: # 图片大小，例如填写 50% 表示原图像的一半大小 caption: \"\" #图片底部描述 alt: \"\" relative: false. （2）命令行或bash在项目目录下sulv-hugo-papermod打开后：hugo new posts/tools/hugo.md\n2.后续编写、修改blog的提交操作 （1）更新public的html文件。在在目录sulv-hugo-papermod下运行命令：\nhugo --theme=hugo-PaperMod --baseURL=\"https://Aliga123.github.io\" --buildDrafts （2）提交（不知为什么有时候提交不了，我不知道怎么弄，直接删掉仓库重新步骤3。\ncd public git add . git commit -m \"add my notes\" git push -u origin master ",
-  "wordCount" : "1726",
+  "articleBody": "简介 本篇blog主要内容：零基础对大佬搭建好的hugo项目进行使用和部署，并修改成自己的hugo和搭配Typora编写blog。\n1.安装git、hugo git安装不多介绍，下载网址：https://git-scm.com/\nhugo安装步骤如下：\n（1）在releases里面需要和自己电脑匹配的版本。（例如我的是hugo_0.128.2_windows-amd64.zip） （2）创建一个用于存放hugo的文件夹，并且在该文件里面创建bin、Sites两个文件夹。 （3）将下载好的hugo解压到bin文件夹里面（解压后就一个hugo.exe文件）。 （4）将hugo配置到环境变量里面。注意需要将用户变量和系统变量的paht都配置一下（也就是在它们两个的path里面都添加…\\bin地址）。 （5）在命令行或bash输入hugo version检查时候安装成功。 2.拉取项目 （1）打开命令行或bash（个人喜欢用bash，后面只提到bash），进入到刚刚创建的Sites文件目录下。 （2）使用git命令拉取Sulv大佬的项目：git clone https://github.com/xyming108/sulv-hugo-papermod.git 。项目会保存在Sites目录下。 （3）进入到项目目录：cd sulv-hugo-papermod （4）拉取hugo-PaperMod主题：git submodule update --init（子模块的git地址以及存在在.git文件里面，所有直接运行这个命令） （5）cd ..退回到项目目录下，再本地启动hugo服务：hugo server -D 或 hugo server -t hugo-PaperMod --buildDrafts （6）登录http://localhost:1313/查看是否本地启动成功 3.部署到GitHub云端 （1）在自己的GitHub上创建一个空仓库。仓库名需要注意前面一段要和GitHub账号名字相同，后面都是固定.github.io。例如我的GitHub账号叫Aliaga123，创建的仓库名Aliga123.github.io\n（2）在目录sulv-hugo-papermod下运行命令：hugo --theme=hugo-PaperMod --baseURL=\"https://Aliga123.github.io\" --buildDrafts。注意，Aliga123.github.io是我的仓库名，换成你的。\n（3）cd public进行到public目录，提交到自己的仓库：\ngit init git remote add origin https://github.com/Aliga123/Aliga123.github.io.git 或者 （git remote add origin git@github.com:Aliga123/Aliga123.github.io.git，按理说这个应该也可行，但是我这个测试了不行） git add . git commit -m \"add my notes\" git push -u origin master 或者 git push（这个测试出现权限拒绝访问） 上传成功后，需要等待一段时间就可以在在网络访问：https://aliga123.github.io/。如果等待一段时间还是访问不了，那就重新提交一下试试。\n4.将Hugo修改成自己的内容，创建md文件 主页页面设置都在config.yml里面，修改里面的设置换成自己的。注意，修改或添加新的文章分类后，要保证文件夹名和yml里面的路径一致。\n可以直接在content/posts里面仿照给的示例编写或者修改自己md文件文件。创建新的分类文件名要小写。\n修改完成自己的后，记得删掉原public文件。因为重复提交不会删除原来的，而是将修改认定为新的添加进去。\n开始创建md文件编写blog：\n（1）直接使用typora在对应位置创建md文件，复制其他md文件的前缀后修改：\ntitle: \"Hugo\" date: 2024-07-27T21:27:55+08:00 lastmod: 2024-07-27T21:27:55+08:00 author: [\"aliga\"] keywords: - categories: # 没有分类界面可以不填写 - tags: # 标签 - description: \"开发个人blog网站的工具\" weight: slug: \"\" draft: false # 是否为草稿 comments: true # 本页面是否显示评论 reward: true # 打赏 mermaid: true #是否开启mermaid showToc: true # 显示目录 TocOpen: true # 自动展开目录 hidemeta: false # 是否隐藏文章的元信息，如发布日期、作者等 disableShare: true # 底部不显示分享栏 showbreadcrumbs: true #顶部显示路径 cover: image: \"\" #图片路径例如：posts/tech/123/123.png zoom: # 图片大小，例如填写 50% 表示原图像的一半大小 caption: \"\" #图片底部描述 alt: \"\" relative: false. （2）命令行或bash在项目目录下sulv-hugo-papermod打开后：hugo new posts/tools/hugo.md\n2.后续编写、修改blog的提交操作 （1）更新public的html文件。在在目录sulv-hugo-papermod下运行命令：\nhugo --theme=hugo-PaperMod --baseURL=\"https://Aliga123.github.io\" --buildDrafts （2）提交（不知为什么有时候提交不了，我不知道怎么弄，直接删掉仓库重新步骤3。\ncd public git add . git commit -m \"add my notes\" git push -u origin master 出现如下的网络问题，多试几次就好了\nfatal: unable to access 'https://github.com/Aliga123/Aliga123.github.io.git/': OpenSSL SSL_read: SSL_ERROR_SYSCALL, errno 0 ",
+  "wordCount" : "1753",
   "inLanguage": "zh",
   "datePublished": "2024-07-27T21:27:55+08:00",
   "dateModified": "2024-07-27T21:27:55+08:00",
@@ -298,7 +298,7 @@ var _hmt = _hmt || [];
     
     <span id="post_meta_style_3">
         <span class="fa fa-file-word-o"></span>
-        <span>1726字
+        <span>1753字
             &nbsp;&nbsp;
         </span>
     </span>
@@ -585,6 +585,14 @@ var _hmt = _hmt || [];
 </span></span></code></pre></div></li>
 </ul>
 </li>
+<li>
+<p>出现如下的网络问题，多试几次就好了</p>
+<ul>
+<li>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>fatal: unable to access <span style="color:#e6db74">&#39;https://github.com/Aliga123/Aliga123.github.io.git/&#39;</span>: OpenSSL SSL_read: SSL_ERROR_SYSCALL, errno <span style="color:#ae81ff">0</span>
+</span></span></code></pre></div></li>
+</ul>
+</li>
 </ul>
 
 
@@ -620,10 +628,10 @@ var _hmt = _hmt || [];
         <footer class="post-footer">
             
 <nav class="paginav">
-  <a class="next" href="https://Aliga123.github.io/posts/back-end/tech1/">
+  <a class="next" href="https://Aliga123.github.io/posts/tools/autodl/">
     <span class="title">下一页 »</span>
     <br>
-    <span>Redis scan命令学习</span>
+    <span>AutoDL</span>
   </a>
 </nav>
 
