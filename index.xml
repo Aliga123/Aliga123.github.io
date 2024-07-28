@@ -6,7 +6,124 @@
     <description>Recent content on aliga&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
-    <lastBuildDate>Sat, 27 Jul 2024 21:27:55 +0800</lastBuildDate><atom:link href="https://Aliga123.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 28 Jul 2024 00:18:23 +0800</lastBuildDate><atom:link href="https://Aliga123.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Chat LLM API的几个重要参数</title>
+      <link>https://Aliga123.github.io/posts/ai-llm/chat-llm-api%E7%9A%84%E5%87%A0%E4%B8%AA%E9%87%8D%E8%A6%81%E5%8F%82%E6%95%B0/</link>
+      <pubDate>Sun, 28 Jul 2024 00:18:23 +0800</pubDate>
+      
+      <guid>https://Aliga123.github.io/posts/ai-llm/chat-llm-api%E7%9A%84%E5%87%A0%E4%B8%AA%E9%87%8D%E8%A6%81%E5%8F%82%E6%95%B0/</guid>
+      <description>其它大模型的 API 基本都是参考 OpenAI，只有细节上稍有不同。 OpenAI Chat 是主流。有的大模型只提供 Chat。 client = OpenAI( api_key=os.getenv(&amp;#34;OPENAI_API_KEY&amp;#34;), base_url=os.getenv(&amp;#34;OPENAI_BASE_URL&amp;#34;) ) session = [] session.append({&amp;#34;role&amp;#34;: &amp;#34;user&amp;#34;, &amp;#34;content&amp;#34;: user_prompt}) response = client.chat.completions.create( model=&amp;#34;gpt-3.5-turbo&amp;#34;, messages=session, # 消息队列 # 以下默认值都是官方默认值 temperature=1, # 生成结果的多样性 0~2之间，越大越随机，越小越固定。执行任务用 0，文本生成用 0.7-0.9，无特殊需要，不</description>
+    </item>
+    
+    <item>
+      <title>Finetune</title>
+      <link>https://Aliga123.github.io/posts/ai-llm/finetune/</link>
+      <pubDate>Sun, 28 Jul 2024 00:18:23 +0800</pubDate>
+      
+      <guid>https://Aliga123.github.io/posts/ai-llm/finetune/</guid>
+      <description>后续完成！！！</description>
+    </item>
+    
+    <item>
+      <title>Function Calling</title>
+      <link>https://Aliga123.github.io/posts/ai-llm/function-calling/</link>
+      <pubDate>Sun, 28 Jul 2024 00:18:23 +0800</pubDate>
+      
+      <guid>https://Aliga123.github.io/posts/ai-llm/function-calling/</guid>
+      <description>plugins/Actions的工作原理 ChatGPT 及所有大模型都有两大缺陷：没有最新消息、没有真逻辑。Plugin 能一定程度解决这两个问题。Actions 是 Plugis 的升级，是 GPTs 产品的一部分。两者区别并不大。 plugins开发，只需要定义两个文件： yourdomain.com/.well-kno</description>
+    </item>
+    
+    <item>
+      <title>Langchin</title>
+      <link>https://Aliga123.github.io/posts/ai-llm/langchin/</link>
+      <pubDate>Sun, 28 Jul 2024 00:18:23 +0800</pubDate>
+      
+      <guid>https://Aliga123.github.io/posts/ai-llm/langchin/</guid>
+      <description>环境设置 # 加载环境变量 from dotenv import load_dotenv, find_dotenv import os _ = load_dotenv(find_dotenv()) # 读取本地 .env 文件，里面定义了 OPENAI_API_KEY （可选）启用LangSmith：我们可以看到每次运行被记录到 LangSmith（免费是4000次），并且可以看到LangSmith 的跟踪https://smith.langchain.com/public/8</description>
+    </item>
+    
+    <item>
+      <title>LangSmith</title>
+      <link>https://Aliga123.github.io/posts/ai-llm/langsmith/</link>
+      <pubDate>Sun, 28 Jul 2024 00:18:23 +0800</pubDate>
+      
+      <guid>https://Aliga123.github.io/posts/ai-llm/langsmith/</guid>
+      <description>后续完成! 维护一个生产级的 LLM 应用，我们需要做什么？ 调试 Prompt Prompt 版本管理 测试/验证系统的相关指标 数据集管理 各种指标监控与统计：访问量、响应时长、Token费等等 针对以上需求，我们介绍三个生产级 LLM App 维护平台 LangSmith: LangChain 的官方平台，SaaS 服务，非开源； LangFuse: 开源 + SaaS，LangSmith 平替，可</description>
+    </item>
+    
+    <item>
+      <title>LLM的幻觉</title>
+      <link>https://Aliga123.github.io/posts/ai-llm/llm%E7%9A%84%E5%B9%BB%E8%A7%89/</link>
+      <pubDate>Sun, 28 Jul 2024 00:18:23 +0800</pubDate>
+      
+      <guid>https://Aliga123.github.io/posts/ai-llm/llm%E7%9A%84%E5%B9%BB%E8%A7%89/</guid>
+      <description>任何时候都存「幻觉」，我们只能尽量减少幻觉的影响，参考以下资料： 自然语言生成中关于幻觉研究的综述：https://arxiv.org/abs/2202.03629 语言模型出现的幻觉是如何滚雪球的：https://arxiv.org/abs/2305.13534 ChatGPT 在推理、幻觉和交互</description>
+    </item>
+    
+    <item>
+      <title>LLM训练框架</title>
+      <link>https://Aliga123.github.io/posts/ai-llm/llm%E8%AE%AD%E7%BB%83%E6%A1%86%E6%9E%B6/</link>
+      <pubDate>Sun, 28 Jul 2024 00:18:23 +0800</pubDate>
+      
+      <guid>https://Aliga123.github.io/posts/ai-llm/llm%E8%AE%AD%E7%BB%83%E6%A1%86%E6%9E%B6/</guid>
+      <description>后续完成！</description>
+    </item>
+    
+    <item>
+      <title>Prompt</title>
+      <link>https://Aliga123.github.io/posts/ai-llm/prompt/</link>
+      <pubDate>Sun, 28 Jul 2024 00:18:23 +0800</pubDate>
+      
+      <guid>https://Aliga123.github.io/posts/ai-llm/prompt/</guid>
+      <description>1.Prompt 的典型构成 角色：给 AI 定义一个最匹配任务的角色，比如：「你是一位软件工程师」「你是一位小学老师」 指示：对任务进行描述 输出：输出的格式描述，以便后继模块自动解析模型的输出结果，比如（JSON、XML） 例子：必要时给出举例，学术中称为 one-shot learning, few-shot learning 或 in-context learning；实践证明其对输出正确</description>
+    </item>
+    
+    <item>
+      <title>Prompt工程--防止prompt攻击</title>
+      <link>https://Aliga123.github.io/posts/ai-llm/prompt%E5%B7%A5%E7%A8%8B--%E9%98%B2%E6%AD%A2prompt%E6%94%BB%E5%87%BB/</link>
+      <pubDate>Sun, 28 Jul 2024 00:18:23 +0800</pubDate>
+      
+      <guid>https://Aliga123.github.io/posts/ai-llm/prompt%E5%B7%A5%E7%A8%8B--%E9%98%B2%E6%AD%A2prompt%E6%94%BB%E5%87%BB/</guid>
+      <description>防止prompt攻击 攻击方式 1：著名的「奶奶漏洞」！ 用套路把 AI 绕懵。 攻击方式 2：Prompt 注入！ 用户输入的 prompt 改变了系统既定的设定，使其输出违背设计意图的内容。 def get_chat_completion(session, user_prompt, model=&amp;#34;gpt-3.5-turbo&amp;#34;): session.append({&amp;#34;role&amp;#34;: &amp;#34;user&amp;#34;, &amp;#34;content&amp;#34;: user_prompt}) response = client.chat.completions.create( model=model, messages=session, temperature=0, ) msg = response.choices[0].message.content session.append({&amp;#34;role&amp;#34;: &amp;#34;assistant&amp;#34;, &amp;#34;content&amp;#34;: msg}) return msg session = [ { &amp;#34;role&amp;#34;: &amp;#34;system&amp;#34;, &amp;#34;content&amp;#34;: &amp;#34;你是AGI课堂的客服代表，你叫瓜瓜。\ 你的职责是</description>
+    </item>
+    
+    <item>
+      <title>Prompt工程-CoT、ToT</title>
+      <link>https://Aliga123.github.io/posts/ai-llm/prompt%E5%B7%A5%E7%A8%8B--cottot/</link>
+      <pubDate>Sun, 28 Jul 2024 00:18:23 +0800</pubDate>
+      
+      <guid>https://Aliga123.github.io/posts/ai-llm/prompt%E5%B7%A5%E7%A8%8B--cottot/</guid>
+      <description>思维链（CoT） 思维链是人们用户摸索出来的，设计者的目的为了保留历史对话提高用户的使用体验。下面是对话列表实现chat对话的历史记录保留。 session = [{&amp;#34;role&amp;#34;: &amp;#34;system&amp;#34;,&amp;#34;content&amp;#34;: &amp;#34;&amp;#34;&amp;#34; 你是一个手机流量套餐的客服代表，你叫小瓜。可以帮助用户选择最合适的流量套餐产品。可以选择的套餐包括： 经济套餐，月费50元，10G流量</description>
+    </item>
+    
+    <item>
+      <title>RAG</title>
+      <link>https://Aliga123.github.io/posts/ai-llm/rag/</link>
+      <pubDate>Sun, 28 Jul 2024 00:18:23 +0800</pubDate>
+      
+      <guid>https://Aliga123.github.io/posts/ai-llm/rag/</guid>
+      <description>elasticsearch：储存与检索 Elasticsearch（简称ES）是一个分布式、RESTful 风格的搜索和数据分析引擎，能够解决不断涌现出的各种用例。作为 Elastic Stack 的核心，Elasticsearch 会集中存储您的数据，让您飞快完成搜索，微调相关性，进行强大的分析，并轻松缩放规</description>
+    </item>
+    
+    <item>
+      <title>Semantic Kernel</title>
+      <link>https://Aliga123.github.io/posts/ai-llm/semantic-kernel/</link>
+      <pubDate>Sun, 28 Jul 2024 00:18:23 +0800</pubDate>
+      
+      <guid>https://Aliga123.github.io/posts/ai-llm/semantic-kernel/</guid>
+      <description>Semantic Kernel Sematic Kernel 通过 Kernel 链接 LLM 与 Functions（功能）: Semantic Functions：通过 Prompt 实现的 LLM 能力 Native Functions: 编程语言原生的函数功能 在 SK 中，一组 Function 组成一个技能（Skill/Plugin）。要运行 Skill/Plugin，需要有一个配置和管理的单元，这个组织管理单元就是 Kernel。 Kernel 负责管理底层</description>
+    </item>
+    
+    <item>
+      <title>使用.env文件保存key变量</title>
+      <link>https://Aliga123.github.io/posts/ai-llm/%E4%BD%BF%E7%94%A8.env%E6%96%87%E4%BB%B6%E4%BF%9D%E5%AD%98key%E5%8F%98%E9%87%8F/</link>
+      <pubDate>Sun, 28 Jul 2024 00:18:23 +0800</pubDate>
+      
+      <guid>https://Aliga123.github.io/posts/ai-llm/%E4%BD%BF%E7%94%A8.env%E6%96%87%E4%BB%B6%E4%BF%9D%E5%AD%98key%E5%8F%98%E9%87%8F/</guid>
+      <description>在很多时候我们需要保护我们的API key或需要将key集中到一个文件里面。在python里面有一个python-dotenv可以实现加载本地.env文件获取key变量值。 安装python-dotenv pip install python-dotenv 在项目目录下（任何位置）创建一个.env文件（不要名字），在该文件写入所需</description>
+    </item>
+    
     <item>
       <title>Hugo</title>
       <link>https://Aliga123.github.io/posts/tools/hugo/</link>
@@ -32,15 +149,6 @@
       
       <guid>https://Aliga123.github.io/posts/back-end/tech1/</guid>
       <description>scan命令详解</description>
-    </item>
-    
-    <item>
-      <title>Prompt工程</title>
-      <link>https://Aliga123.github.io/posts/ai-llm/blog/</link>
-      <pubDate>Thu, 05 May 2022 00:18:23 +0800</pubDate>
-      
-      <guid>https://Aliga123.github.io/posts/ai-llm/blog/</guid>
-      <description></description>
     </item>
     
     <item>

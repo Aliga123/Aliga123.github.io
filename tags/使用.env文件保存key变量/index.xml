@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>使用.env文件保存key变量 on aliga&#39;s Blog</title>
+    <link>https://Aliga123.github.io/tags/%E4%BD%BF%E7%94%A8.env%E6%96%87%E4%BB%B6%E4%BF%9D%E5%AD%98key%E5%8F%98%E9%87%8F/</link>
+    <description>Recent content in 使用.env文件保存key变量 on aliga&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <lastBuildDate>Sun, 28 Jul 2024 00:18:23 +0800</lastBuildDate><atom:link href="https://Aliga123.github.io/tags/%E4%BD%BF%E7%94%A8.env%E6%96%87%E4%BB%B6%E4%BF%9D%E5%AD%98key%E5%8F%98%E9%87%8F/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>使用.env文件保存key变量</title>
+      <link>https://Aliga123.github.io/posts/ai-llm/%E4%BD%BF%E7%94%A8.env%E6%96%87%E4%BB%B6%E4%BF%9D%E5%AD%98key%E5%8F%98%E9%87%8F/</link>
+      <pubDate>Sun, 28 Jul 2024 00:18:23 +0800</pubDate>
+      
+      <guid>https://Aliga123.github.io/posts/ai-llm/%E4%BD%BF%E7%94%A8.env%E6%96%87%E4%BB%B6%E4%BF%9D%E5%AD%98key%E5%8F%98%E9%87%8F/</guid>
+      <description>在很多时候我们需要保护我们的API key或需要将key集中到一个文件里面。在python里面有一个python-dotenv可以实现加载本地.env文件获取key变量值。 安装python-dotenv pip install python-dotenv 在项目目录下（任何位置）创建一个.env文件（不要名字），在该文件写入所需</description>
+    </item>
+    
+  </channel>
+</rss>

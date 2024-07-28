@@ -6,7 +6,61 @@
     <description>Recent content in 🧩 标签 on aliga&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
-    <lastBuildDate>Wed, 30 Nov 2022 15:55:23 +0800</lastBuildDate><atom:link href="https://Aliga123.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 28 Jul 2024 00:18:23 +0800</lastBuildDate><atom:link href="https://Aliga123.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Chat LLM API的几个重要参数</title>
+      <link>https://Aliga123.github.io/tags/chat-llm-api%E7%9A%84%E5%87%A0%E4%B8%AA%E9%87%8D%E8%A6%81%E5%8F%82%E6%95%B0/</link>
+      <pubDate>Sun, 28 Jul 2024 00:18:23 +0800</pubDate>
+      
+      <guid>https://Aliga123.github.io/tags/chat-llm-api%E7%9A%84%E5%87%A0%E4%B8%AA%E9%87%8D%E8%A6%81%E5%8F%82%E6%95%B0/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Finetune</title>
+      <link>https://Aliga123.github.io/tags/finetune/</link>
+      <pubDate>Sun, 28 Jul 2024 00:18:23 +0800</pubDate>
+      
+      <guid>https://Aliga123.github.io/tags/finetune/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Function Calling</title>
+      <link>https://Aliga123.github.io/tags/function-calling/</link>
+      <pubDate>Sun, 28 Jul 2024 00:18:23 +0800</pubDate>
+      
+      <guid>https://Aliga123.github.io/tags/function-calling/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Langchin</title>
+      <link>https://Aliga123.github.io/tags/langchin/</link>
+      <pubDate>Sun, 28 Jul 2024 00:18:23 +0800</pubDate>
+      
+      <guid>https://Aliga123.github.io/tags/langchin/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Prompt</title>
+      <link>https://Aliga123.github.io/tags/prompt/</link>
+      <pubDate>Sun, 28 Jul 2024 00:18:23 +0800</pubDate>
+      
+      <guid>https://Aliga123.github.io/tags/prompt/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>使用.env文件保存key变量</title>
+      <link>https://Aliga123.github.io/tags/%E4%BD%BF%E7%94%A8.env%E6%96%87%E4%BB%B6%E4%BF%9D%E5%AD%98key%E5%8F%98%E9%87%8F/</link>
+      <pubDate>Sun, 28 Jul 2024 00:18:23 +0800</pubDate>
+      
+      <guid>https://Aliga123.github.io/tags/%E4%BD%BF%E7%94%A8.env%E6%96%87%E4%BB%B6%E4%BF%9D%E5%AD%98key%E5%8F%98%E9%87%8F/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>Redis</title>
       <link>https://Aliga123.github.io/tags/redis/</link>
@@ -22,15 +76,6 @@
       <pubDate>Wed, 30 Nov 2022 15:55:23 +0800</pubDate>
       
       <guid>https://Aliga123.github.io/tags/tech/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Prompt工程</title>
-      <link>https://Aliga123.github.io/tags/prompt%E5%B7%A5%E7%A8%8B/</link>
-      <pubDate>Thu, 05 May 2022 00:18:23 +0800</pubDate>
-      
-      <guid>https://Aliga123.github.io/tags/prompt%E5%B7%A5%E7%A8%8B/</guid>
       <description></description>
     </item>
     
