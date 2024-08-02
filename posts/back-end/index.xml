@@ -9,19 +9,19 @@
     <lastBuildDate>Wed, 30 Nov 2022 15:55:23 +0800</lastBuildDate><atom:link href="https://Aliga123.github.io/posts/back-end/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Redis scan命令学习</title>
-      <link>https://Aliga123.github.io/posts/back-end/tech1/</link>
+      <link>https://Aliga123.github.io/posts/back-end/redis-scan%E5%91%BD%E4%BB%A4%E5%AD%A6%E4%B9%A0/</link>
       <pubDate>Wed, 30 Nov 2022 15:55:23 +0800</pubDate>
       
-      <guid>https://Aliga123.github.io/posts/back-end/tech1/</guid>
+      <guid>https://Aliga123.github.io/posts/back-end/redis-scan%E5%91%BD%E4%BB%A4%E5%AD%A6%E4%B9%A0/</guid>
       <description>scan命令详解</description>
     </item>
     
     <item>
-      <title>Tech</title>
-      <link>https://Aliga123.github.io/posts/back-end/tech/</link>
+      <title>Tech1</title>
+      <link>https://Aliga123.github.io/posts/back-end/tech1/</link>
       <pubDate>Thu, 05 May 2022 00:17:58 +0800</pubDate>
       
-      <guid>https://Aliga123.github.io/posts/back-end/tech/</guid>
+      <guid>https://Aliga123.github.io/posts/back-end/tech1/</guid>
       <description>科技代码</description>
     </item>
     
