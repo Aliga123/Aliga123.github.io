@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Function Calling on aliga&#39;s Blog</title>
+    <link>https://Aliga123.github.io/tags/function-calling/</link>
+    <description>Recent content in Function Calling on aliga&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <lastBuildDate>Sun, 28 Jul 2024 00:18:23 +0800</lastBuildDate><atom:link href="https://Aliga123.github.io/tags/function-calling/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Function Calling</title>
+      <link>https://Aliga123.github.io/posts/ai-llm/function-calling/</link>
+      <pubDate>Sun, 28 Jul 2024 00:18:23 +0800</pubDate>
+      
+      <guid>https://Aliga123.github.io/posts/ai-llm/function-calling/</guid>
+      <description>plugins/Actions的工作原理 ChatGPT 及所有大模型都有两大缺陷：没有最新消息、没有真逻辑。Plugin 能一定程度解决这两个问题。Actions 是 Plugis 的升级，是 GPTs 产品的一部分。两者区别并不大。 plugins开发，只需要定义两个文件： yourdomain.com/.well-kno</description>
+    </item>
+    
+  </channel>
+</rss>

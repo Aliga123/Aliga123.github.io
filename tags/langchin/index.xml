@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Langchin on aliga&#39;s Blog</title>
+    <link>https://Aliga123.github.io/tags/langchin/</link>
+    <description>Recent content in Langchin on aliga&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <lastBuildDate>Sun, 28 Jul 2024 00:18:23 +0800</lastBuildDate><atom:link href="https://Aliga123.github.io/tags/langchin/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Langchin</title>
+      <link>https://Aliga123.github.io/posts/ai-llm/langchin/</link>
+      <pubDate>Sun, 28 Jul 2024 00:18:23 +0800</pubDate>
+      
+      <guid>https://Aliga123.github.io/posts/ai-llm/langchin/</guid>
+      <description>环境设置 # 加载环境变量 from dotenv import load_dotenv, find_dotenv import os _ = load_dotenv(find_dotenv()) # 读取本地 .env 文件，里面定义了 OPENAI_API_KEY （可选）启用LangSmith：我们可以看到每次运行被记录到 LangSmith（免费是4000次），并且可以看到LangSmith 的跟踪https://smith.langchain.com/public/8</description>
+    </item>
+    
+  </channel>
+</rss>

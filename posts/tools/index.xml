@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Tools on aliga&#39;s Blog</title>
+    <link>https://Aliga123.github.io/posts/tools/</link>
+    <description>Recent content in Tools on aliga&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <lastBuildDate>Sat, 27 Jul 2024 21:27:55 +0800</lastBuildDate><atom:link href="https://Aliga123.github.io/posts/tools/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Hugo</title>
+      <link>https://Aliga123.github.io/posts/tools/hugo/</link>
+      <pubDate>Sat, 27 Jul 2024 21:27:55 +0800</pubDate>
+      
+      <guid>https://Aliga123.github.io/posts/tools/hugo/</guid>
+      <description>开发个人blog网站的工具</description>
+    </item>
+    
+    <item>
+      <title>AutoDL</title>
+      <link>https://Aliga123.github.io/posts/tools/autodl/</link>
+      <pubDate>Sat, 27 Jul 2024 08:27:55 +0800</pubDate>
+      
+      <guid>https://Aliga123.github.io/posts/tools/autodl/</guid>
+      <description>租用GPU服务器的云平台</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,1499 @@
+<!DOCTYPE html>
+<html lang="zh" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Langchin | aliga&#39;s Blog</title>
+<meta name="keywords" content="">
+<meta name="description" content="环境设置 # 加载环境变量 from dotenv import load_dotenv, find_dotenv import os _ = load_dotenv(find_dotenv()) # 读取本地 .env 文件，里面定义了 OPENAI_API_KEY （可选）启用LangSmith：我们可以看到每次运行被记录到 LangSmith（免费是4000次），并且可以看到LangSmith 的跟踪https://smith.langchain.com/public/8">
+<meta name="author" content="aliga">
+<link rel="canonical" href="https://Aliga123.github.io/posts/ai-llm/langchin/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.js" onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://Aliga123.github.io/img/Q.gif">
+<link rel="icon" type="image/png" sizes="16x16" href="https://Aliga123.github.io/img/Q.gif">
+<link rel="icon" type="image/png" sizes="32x32" href="https://Aliga123.github.io/img/Q.gif">
+<link rel="apple-touch-icon" href="https://Aliga123.github.io/img/Q.gif">
+<link rel="mask-icon" href="https://Aliga123.github.io/img/Q.gif">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="zh" href="https://Aliga123.github.io/posts/ai-llm/langchin/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+<script defer src="https://unpkg.com/mermaid@8.8.1/dist/mermaid.min.js"></script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+<script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.3/dist/jquery.min.js"></script>
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = ""; 
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+  
+
+<meta property="og:title" content="Langchin" />
+<meta property="og:description" content="环境设置 # 加载环境变量 from dotenv import load_dotenv, find_dotenv import os _ = load_dotenv(find_dotenv()) # 读取本地 .env 文件，里面定义了 OPENAI_API_KEY （可选）启用LangSmith：我们可以看到每次运行被记录到 LangSmith（免费是4000次），并且可以看到LangSmith 的跟踪https://smith.langchain.com/public/8" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://Aliga123.github.io/posts/ai-llm/langchin/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2024-07-28T00:18:23+08:00" />
+<meta property="article:modified_time" content="2024-07-28T00:18:23+08:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Langchin"/>
+<meta name="twitter:description" content="环境设置 # 加载环境变量 from dotenv import load_dotenv, find_dotenv import os _ = load_dotenv(find_dotenv()) # 读取本地 .env 文件，里面定义了 OPENAI_API_KEY （可选）启用LangSmith：我们可以看到每次运行被记录到 LangSmith（免费是4000次），并且可以看到LangSmith 的跟踪https://smith.langchain.com/public/8"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+
+        {
+          "@type": "ListItem",
+          "position":  1 ,
+          "name": "📚文章",
+          "item": "https://Aliga123.github.io/posts/"
+        },
+
+        {
+          "@type": "ListItem",
+          "position":  2 ,
+          "name": "🧱 AI大模型应用开发",
+          "item": "https://Aliga123.github.io/posts/ai-llm/"
+        }, 
+    {
+      "@type": "ListItem",
+      "position":  3 ,
+      "name": "Langchin",
+      "item": "https://Aliga123.github.io/posts/ai-llm/langchin/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Langchin",
+  "name": "Langchin",
+  "description": "环境设置 # 加载环境变量 from dotenv import load_dotenv, find_dotenv import os _ = load_dotenv(find_dotenv()) # 读取本地 .env 文件，里面定义了 OPENAI_API_KEY （可选）启用LangSmith：我们可以看到每次运行被记录到 LangSmith（免费是4000次），并且可以看到LangSmith 的跟踪https://smith.langchain.com/public/8",
+  "keywords": [
+    ""
+  ],
+  "articleBody": "环境设置\n# 加载环境变量 from dotenv import load_dotenv, find_dotenv import os _ = load_dotenv(find_dotenv()) # 读取本地 .env 文件，里面定义了 OPENAI_API_KEY （可选）启用LangSmith：我们可以看到每次运行被记录到 LangSmith（免费是4000次），并且可以看到LangSmith 的跟踪https://smith.langchain.com/public/88baa0b2-7c1a-4d09-ba30-a47985dde2ea/r\nos.environ[\"LANGCHAIN_TRACING_V2\"] = \"true\" os.environ[\"LANGCHAIN_API_KEY\"] = os.getenv(\"LANGCHAIN_API_KEY\") LangChain 的核心功能 加载大模型 1.API\n在构建ChatModel时，我们有一些标准化的参数:\nmodel：模型的名称 temperature：采样温度 timeout： 请求超时 max_tokens：生成的最大令牌数 stop：默认停止序列 max_retries：重试请求的最大次数 api_key：模型提供者的 API 密钥 base_url：发送请求的端点 大模型参考API：https://python.langchain.com/v0.2/docs/integrations/platforms/\n# 1.openai os.environ[\"OPENAI_API_KEY\"] = os.getenv(\"OPENAI_API_KEY\") from langchain_openai import ChatOpenAI model = ChatOpenAI(model=\"gpt-4o-mini-2024-07-18\") # 2.Azure os.environ[\"AZURE_OPENAI_API_KEY\"] = os.getenv(\"AZURE_OPENAI_API_KEY\") from langchain_openai import AzureChatOpenAI llm = AzureChatOpenAI( azure_endpoint=os.environ[\"AZURE_OPENAI_ENDPOINT\"], azure_deployment=os.environ[\"AZURE_OPENAI_DEPLOYMENT_NAME\"], openai_api_version=os.environ[\"AZURE_OPENAI_API_VERSION\"], ) 2.本地模型\n（1）评估\n这些法学硕士可以从至少两个维度进行评估：\nBase model：基础模型是什么以及它是如何训练的？ Fine-tuning approach：基础模型是否经过微调？如果是，使用了哪组指令？ 可以使用多个排行榜来评估这些模型的相对性能，其中包括：\n系统管理软件 GPT4All 拥抱脸 （2）支持在各种设备上推理开源 LLM 的框架\nllama.cpp：带有权重优化/量化的 llama 推理代码的 C++ 实现 gpt4all：优化 C 后端以进行推理 Ollama：将模型权重和环境捆绑到在设备上运行并为 LLM 提供服务的应用程序中 llamafile：将模型权重和运行模型所需的所有内容捆绑在一个文件中，使您可以从此文件在本地运行 LLM，而无需任何额外的安装步骤 一般来说，这些框架会做几件事：\nQuantization：减少原始模型权重的内存占用 Efficient implementation for inference：支持在消费硬件（例如 CPU 或笔记本电脑 GPU）上进行推理 Prompt 1.PromptTemplate：适用于只需要用户输入\nfrom langchain_core.prompts import PromptTemplate prompt_template = PromptTemplate.from_template(\"Tell me a joke about {topic}\") prompt_template.invoke({\"topic\": \"cats\"}) # 部分格式化提示模板 prompt = PromptTemplate( template=\"Tell me a {adjective} joke about the day {date}\", input_variables=[\"adjective\"], partial_variables={\"date\": \"2024.7.23\"}, ) print(prompt.format(adjective=\"funny\")) 2.ChatPromptTemplates：包含system、user\nfrom langchain_core.prompts import ChatPromptTemplate prompt_template = ChatPromptTemplate.from_messages([ (\"system\", \"You are a helpful assistant\"), (\"user\", \"Tell me a joke about {topic}\") ]) prompt_template.invoke({\"topic\": \"cats\"}) 3.MessagesPlaceholder：消息占位符\nfrom langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder from langchain_core.messages import HumanMessage prompt_template = ChatPromptTemplate.from_messages([ (\"system\", \"You are a helpful assistant\"), MessagesPlaceholder(\"msgs\") ]) prompt_template.invoke({\"msgs\": [HumanMessage(content=\"hi!\")]}) # 或者第二种表示 prompt_template = ChatPromptTemplate.from_messages([ (\"system\", \"You are a helpful assistant\"), (\"placeholder\", \"{msgs}\") # \u003c-- This is the changed part ]) prompt_template.invoke({\"msgs\": [HumanMessage(content=\"hi!\")]}) 4.FewShotPromptTemplate、FewShotChatMessagePromptTemplate：给prompt添加少量样本\nexamples = [ { \"question\": \"Who lived longer, Muhammad Ali or Alan Turing?\", \"answer\": \"\"\" Are follow up questions needed here: Yes. Follow up: How old was Muhammad Ali when he died? Intermediate answer: Muhammad Ali was 74 years old when he died. Follow up: How old was Alan Turing when he died? Intermediate answer: Alan Turing was 41 years old when he died. So the final answer is: Muhammad Ali \"\"\", }, { \"question\": \"When was the founder of craigslist born?\", \"answer\": \"\"\" Are follow up questions needed here: Yes. Follow up: Who was the founder of craigslist? Intermediate answer: Craigslist was founded by Craig Newmark. Follow up: When was Craig Newmark born? Intermediate answer: Craig Newmark was born on December 6, 1952. So the final answer is: December 6, 1952 \"\"\", }, ] （1）PromptTemplate + FewShotPromptTemplate\nfrom langchain_core.prompts import PromptTemplate example_prompt = PromptTemplate.from_template(\"Question: {question}\\n{answer}\") from langchain_core.prompts import FewShotPromptTemplate prompt = FewShotPromptTemplate( examples=examples, example_prompt=example_prompt, suffix=\"Question: {input}\", input_variables=[\"input\"], ) print( prompt.invoke({\"input\": \"Who was the father of Mary Ball Washington?\"}).to_string() ) from langchain_core.prompts import ChatPromptTemplate, FewShotChatMessagePromptTemplate # This is a prompt template used to format each individual example. example_prompt = ChatPromptTemplate.from_messages( [ (\"human\", \"Question: {question}\"), (\"ai\", \"{answer}\"), ] ) few_shot_prompt = FewShotChatMessagePromptTemplate( example_prompt=example_prompt, examples=examples, ) #print(few_shot_prompt.invoke({}).to_messages()) final_prompt = ChatPromptTemplate.from_messages( [ (\"system\", \"You are a QA bot.\"), few_shot_prompt, (\"human\", \"{input}\"), ] ) final_prompt.invoke({\"input\": \"Who was the father of Mary Ball Washington?\"}) 5.messages:由一系列消息组成\nfrom langchain_core.messages import AIMessage, HumanMessage, SystemMessage # 注意：最后用户的输入必须是\"{}\"的形式，不能使用HumanMessage prompt = ( SystemMessage(content=\"You are a nice Mathematician.\") + HumanMessage(content=\"Can you help me with some math?\") + AIMessage(content=\"Sure, tell me your question.\") + \"{user_input}\" ) query = \"What is 3 * 12? Also, what is 11 + 49?\" #prompt.invoke({\"user_input\": query}) prompt.format_messages(user_input=query) prompt.append(AIMessage(content=\"Sure, tell me your question.\")) prompt.format_messages(user_input=query) 6.PipelinePromptTemplate:想要重用提示的部分内容时，该类非常有用\nfrom langchain_core.prompts import PipelinePromptTemplate, PromptTemplate full_prompt = PromptTemplate.from_template( \"\"\"{introduction} {example} {start}\"\"\") introduction_prompt = PromptTemplate.from_template(\"You are impersonating {person}.\") example_prompt = PromptTemplate.from_template( \"\"\"Here's an example of an interaction: Q: {example_q} A: {example_a}\"\"\") start_prompt = PromptTemplate.from_template( \"\"\"Now, do this for real! Q: {input} A:\"\"\") input_prompts = [ (\"introduction\", introduction_prompt), (\"example\", example_prompt), (\"start\", start_prompt), ] pipeline_prompt = PipelinePromptTemplate( final_prompt=full_prompt, pipeline_prompts=input_prompts ) pipeline_prompt.input_variables print( pipeline_prompt.format( person=\"Elon Musk\", example_q=\"What's your favorite car?\", example_a=\"Tesla\", input=\"What's your favorite social media site?\", ) ) 格式化输出 方法一：使用pydantic，返回一个pydantic对象。可以根据输入内容自动选择输出格式\nfrom typing import Optional from typing import Union from langchain_core.pydantic_v1 import BaseModel, Field class Joke(BaseModel): \"\"\"Joke to tell user.\"\"\" setup: str = Field(description=\"The setup of the joke\") punchline: str = Field(description=\"The punchline to the joke\") rating: Optional[int] = Field(description=\"How funny the joke is, from 1 to 10\") class ConversationalResponse(BaseModel): \"\"\"Respond in a conversational manner. Be kind and helpful.\"\"\" response: str = Field(description=\"A conversational response to the user's query\") # 让模型从多个模式中进行自动选择 class Response(BaseModel): output: Union[Joke, ConversationalResponse] structured_llm = model.with_structured_output(Response) structured_llm.invoke(\"How are you today?\") #structured_llm.invoke(\"Tell me a joke about cats\") 方法二：JSON Schema，返回一个字典\njson_schema = { \"title\": \"joke\", \"description\": \"Joke to tell user.\", \"type\": \"object\", \"properties\": { \"setup\": { \"type\": \"string\", \"description\": \"The setup of the joke\", }, \"punchline\": { \"type\": \"string\", \"description\": \"The punchline to the joke\", }, \"rating\": { \"type\": \"integer\", \"description\": \"How funny the joke is, from 1 to 10\", }, }, \"required\": [\"setup\", \"punchline\"], } structured_llm = model.with_structured_output(json_schema) structured_llm.invoke(\"Tell me a joke about cats\") 方法三：少量示例（few-shot）\nfrom langchain_core.prompts import ChatPromptTemplate system = \"\"\"You are a hilarious comedian. Your specialty is knock-knock jokes. \\ Return a joke which has the setup (the response to \"Who's there?\") and the final punchline (the response to \" who?\"). Here are some examples of jokes: example_user: Tell me a joke about planes example_assistant: {{\"setup\": \"Why don't planes ever get tired?\", \"punchline\": \"Because they have rest wings!\", \"rating\": 2}} example_user: Tell me another joke about planes example_assistant: {{\"setup\": \"Cargo\", \"punchline\": \"Cargo 'vroom vroom', but planes go 'zoom zoom'!\", \"rating\": 10}} example_user: Now about caterpillars example_assistant: {{\"setup\": \"Caterpillar\", \"punchline\": \"Caterpillar really slow, but watch me turn into a butterfly and steal the show!\", \"rating\": 5}}\"\"\" prompt = ChatPromptTemplate.from_messages([(\"system\", system), (\"human\", \"{input}\")]) few_shot_structured_llm = prompt | model few_shot_structured_llm.invoke(\"what's something funny about woodpeckers\") **方法四：**并非所有模型都支持.with_structured_output()，因此使用内置函数PydanticOutputParser来解析提示与给定的 Pydantic 模式匹配的llm的输出到Prompt中。\nfrom typing import List from langchain_core.output_parsers import PydanticOutputParser from langchain_core.prompts import ChatPromptTemplate from langchain_core.pydantic_v1 import BaseModel, Field class Person(BaseModel): \"\"\"Information about a person.\"\"\" name: str = Field(..., description=\"The name of the person\") height_in_meters: float = Field( ..., description=\"The height of the person expressed in meters.\" ) class People(BaseModel): \"\"\"Identifying information about all people in a text.\"\"\" people: List[Person] # Set up a parser parser = PydanticOutputParser(pydantic_object=People) # Prompt prompt = ChatPromptTemplate.from_messages( [ ( \"system\", \"Answer the user query. Wrap the output in `json` tags\\n{format_instructions}\", ), (\"human\", \"{query}\"), ] ).partial(format_instructions=parser.get_format_instructions()) query = \"Anna is 23 years old and she is 6 feet tall\" print(prompt.invoke(query).to_string()) # 再次使用parser，又可以把输出转换成Parser对象 chain = prompt | model | parser chain.invoke({\"query\": query}) # Prompt prompt = ChatPromptTemplate.from_messages( [ ( \"system\", \"Answer the user query. Wrap the output in `json` tags\\n{schema}\", ), (\"human\", \"{query}\"), ] ).partial(schema=People.schema()) query = \"Anna is 23 years old and she is 6 feet tall\" print(prompt.format_prompt(query=query).to_string()) 构建chain 1. LangChain Expression Language (LCEL): |\nfrom langchain_core.output_parsers import StrOutputParser from langchain_core.prompts import ChatPromptTemplate prompt = ChatPromptTemplate.from_template(\"tell me a joke about {user_input}\") chain = prompt | model | StrOutputParser() chain.invoke({\"user_input\": \"bears\"}) # 第二种方法 composed_chain = {\"user_input\": chain} | prompt | model | StrOutputParser() composed_chain.invoke({\"user_input\": \"bears\"}) #composed_chain.invoke({\"bears\"}) #只有一个参数还可以直接传 # 第三种方法，RunnablePassthrough直接过去原参数 from langchain_core.runnables import RunnablePassthrough Runnable_chain = {\"user_input\": RunnablePassthrough()} | prompt | model | StrOutputParser() Runnable_chain.invoke(\"bears\") 2. pipe()\nfrom langchain_core.runnables import RunnableParallel composed_chain_with_pipe = RunnableParallel({\"user_input\": chain}).pipe( prompt, model, StrOutputParser() ) composed_chain_with_pipe.invoke({\"user_input\": \"bears\"}) 添加历史记录 1.使用SQLite数据库保存\nfrom langchain_community.chat_message_histories import SQLChatMessageHistory # session_id是这些输入消息对应的会话（对话）线程的标识符。这允许您同时维护同一链中的多个对话/线程。 def get_session_history(session_id): return SQLChatMessageHistory(session_id, \"sqlite:///memory.db\") # 历史对话会保存在当前项目的memory.db文件里 from langchain_core.messages import HumanMessage from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder from langchain_core.runnables.history import RunnableWithMessageHistory prompt = ChatPromptTemplate.from_messages( [ ( \"system\", \"You're an assistant who speaks in {language}. Respond in 20 words or fewer\", ), MessagesPlaceholder(variable_name=\"history\"), (\"human\", \"{input}\"), ] ) runnable = prompt | model runnable_with_history = RunnableWithMessageHistory( runnable, get_session_history, input_messages_key=\"input\", history_messages_key=\"history\", ) runnable_with_history.invoke( {\"language\": \"italian\", \"input\": \"hi im bob!\"}, config={\"configurable\": {\"session_id\": \"2\"}}, ) # 在这种情况下，上下文通过提供的聊天历史记录进行保留session_id，因此模型知道用户的姓名。 runnable_with_history.invoke( {\"language\": \"italian\", \"input\": \"whats my name?\"}, config={\"configurable\": {\"session_id\": \"2\"}}, ) 2.用户定制\nfrom langchain_core.runnables import ConfigurableFieldSpec def get_session_history(user_id: str, conversation_id: str): return SQLChatMessageHistory(f\"{user_id}--{conversation_id}\", \"sqlite:///memory.db\") with_message_history = RunnableWithMessageHistory( runnable, get_session_history, input_messages_key=\"input\", history_messages_key=\"history\", history_factory_config=[ ConfigurableFieldSpec( id=\"user_id\", annotation=str, name=\"User ID\", description=\"Unique identifier for the user.\", default=\"\", is_shared=True, ), ConfigurableFieldSpec( id=\"conversation_id\", annotation=str, name=\"Conversation ID\", description=\"Unique identifier for the conversation.\", default=\"\", is_shared=True, ), ], ) with_message_history.invoke( {\"language\": \"italian\", \"input\": \"hi im bob!\"}, config={\"configurable\": {\"user_id\": \"123\", \"conversation_id\": \"1\"}}, ) Tools（function calling） 1.创建tool和调用\n方式一：@tool装饰器+StructuredTool\nfrom langchain_core.tools import tool # parse_docstring=True对文档字符串进行解析。注意：函数描述和参数描述中间要空一行。 @tool(\"multiplication-tool\", parse_docstring=True, return_direct=True) def multiply(a: int, b: int) -\u003e int: \"\"\"Multiply two numbers. Args: a: first number. b: second number. \"\"\" return a * b print(multiply.invoke({\"a\": 2, \"b\": 3})) # Let's inspect some of the attributes associated with the tool. print(multiply.name) print(multiply.description) print(multiply.args) print(multiply.return_direct) multiply.args_schema.schema() 方式二：@tool装饰器+pydantic\nfrom langchain_core.tools import tool from langchain.pydantic_v1 import BaseModel, Field # 给参数添加描述 class CalculatorInput(BaseModel): a: int = Field(description=\"first number\") b: int = Field(description=\"second number\") @tool(\"multiplication-tool\", args_schema=CalculatorInput, return_direct=True) def multiply(a: int, b: int) -\u003e int: \"\"\"Multiply two numbers.\"\"\" return a * b print(multiply.invoke({\"a\": 2, \"b\": 3})) # Let's inspect some of the attributes associated with the tool. print(multiply.name) print(multiply.description) print(multiply.args) print(multiply.return_direct) multiply.args_schema.schema() 方式三：StructuredTool+pydantic\nfrom langchain_core.tools import StructuredTool from langchain.pydantic_v1 import BaseModel, Field # 对参数的描述 class CalculatorInput(BaseModel): a: int = Field(description=\"first number\") b: int = Field(description=\"second number\") def multiply(a: int, b: int) -\u003e int: \"\"\"Multiply two numbers.\"\"\" return a * b async def amultiply(a: int, b: int) -\u003e int: \"\"\"Multiply two numbers.\"\"\" return a * b calculator = StructuredTool.from_function( func=multiply, name=\"Calculator\", description=\"multiply numbers\", args_schema=CalculatorInput, return_direct=True, coroutine= amultiply #\u003c- 如果需要，您也可以指定异步方法 ) print(calculator.invoke({\"a\": 2, \"b\": 3})) print(await calculator.ainvoke({\"a\": 4, \"b\": 3})) print(calculator.name) print(calculator.description) print(calculator.args) 方式四：将chain作为工具+.as_tool()\nfrom langchain_core.language_models import GenericFakeChatModel from langchain_core.output_parsers import StrOutputParser from langchain_core.prompts import ChatPromptTemplate prompt = ChatPromptTemplate.from_messages( [(\"human\", \"Hello. Please respond in the style of {answer_style}.\")] ) # Placeholder LLM llm = GenericFakeChatModel(messages=iter([\"hello matey\"])) chain = prompt | llm | StrOutputParser() as_tool = chain.as_tool( name=\"Style responder\", description=\"Description of when to use tool.\" ) as_tool.args 方式五：子类化创建工具，BaseModel+BaseTool\nfrom typing import Optional, Type from langchain.pydantic_v1 import BaseModel from langchain_core.callbacks import ( AsyncCallbackManagerForToolRun, CallbackManagerForToolRun, ) from langchain_core.tools import BaseTool class CalculatorInput(BaseModel): a: int = Field(description=\"first number\") b: int = Field(description=\"second number\") class CustomCalculatorTool(BaseTool): name = \"Calculator\" description = \"useful for when you need to answer questions about math\" args_schema: Type[BaseModel] = CalculatorInput return_direct: bool = True def _run( self, a: int, b: int, run_manager: Optional[CallbackManagerForToolRun] = None ) -\u003e str: \"\"\"Use the tool.\"\"\" return a * b async def _arun( self, a: int, b: int, run_manager: Optional[AsyncCallbackManagerForToolRun] = None, ) -\u003e str: \"\"\"Use the tool asynchronously.\"\"\" # If the calculation is cheap, you can just delegate to the sync implementation # as shown below. # If the sync calculation is expensive, you should delete the entire _arun method. # LangChain will automatically provide a better implementation that will # kick off the task in a thread to make sure it doesn't block other async code. return self._run(a, b, run_manager=run_manager.get_sync()) multiply = CustomCalculatorTool() print(multiply.name) print(multiply.description) print(multiply.args) print(multiply.return_direct) print(multiply.invoke({\"a\": 2, \"b\": 3})) print(await multiply.ainvoke({\"a\": 2, \"b\": 3})) 2.在chatLLM执行tool（function calling）\n# 使用该.bind_tools()方法来处理转换 Multiply为模型的正确格式，然后绑定它（即，每次调用模型时传递它） from langchain_core.tools import tool # 简单的定义两个tool @tool def add(a: int, b: int) -\u003e int: \"\"\"Adds a and b.\"\"\" return a + b @tool def multiply(a: int, b: int) -\u003e int: \"\"\"Multiplies a and b.\"\"\" return a * b tools = [add, multiply] llm_with_tools = model.bind_tools(tools) from langchain_core.messages import AIMessage, HumanMessage, SystemMessage, ToolMessage # 对于这种prompt的设计，不适合连续对话 def llm_tool_calling(query): prompt = ( SystemMessage(content=\"You are a nice Mathematician.\") + HumanMessage(content=\"Can you help me with some math?\") + AIMessage(content=\"Sure, tell me your question.\") + \"{user_input}\" ) chain = prompt | llm_with_tools ai_msg = chain.invoke({\"user_input\": query}) prompt.append(ai_msg) #prompt.format_messages(user_input=query) if ai_msg.content == \"\": \"\"\"Simple sequential tool calling helper.\"\"\" tool_map = {tool.name: tool for tool in tools} tool_calls = ai_msg.tool_calls.copy() # 返回一个字典列表 for tool_call in tool_calls: # 对@tool函数执行.invoke(tool_call)返回的是ToolMessage对象,执行tool_call[\"args\"]返回函数结果 tool_msg = tool_map[tool_call[\"name\"]].invoke(tool_call) prompt.append(tool_msg) result = chain.invoke({\"user_input\": query}).content else: result = ai_msg.content return result # 绑定tools的LLM会自行判断是否调用tool，以及调用哪几个几个tool。所以在这之后可以加一个判断时候要执行tool query = \"What is 3 * 12?\" query = \"GPT是什么?\" query = \"What is 3 * 12? Also, what is 11 + 49?\" print(llm_tool_calling(query)) 3.使用内置工具和工具包\n各工具包的使用文档：https://python.langchain.com/v0.2/docs/integrations/tools/\n下面以谷歌搜索为例： 首先，您需要设置正确的 API 密钥和环境变量。要进行设置，请在 Google Cloud 凭据控制台 ( https://console.cloud.google.com/apis/credentials ) 中创建 GOOGLE_API_KEY，并使用可编程搜索引擎 ( https://programmablesearchengine.google.com/controlpanel/create ) 创建 GOOGLE_CSE_ID。接下来，最好按照此处（https://stackoverflow.com/questions/37083058/programmatically-searching-google-in-python-using-custom-search）的说明进行操作。\n!pip install google-api-python-client # 检查是否可以调用Google API from googleapiclient.discovery import build my_api_key = os.getenv(\"GOOGLE_API_KEY\") my_cse_id = os.getenv(\"GOOGLE_API_KEY\") def google_search(search_term, api_key, cse_id, **kwargs): service = build(\"customsearch\", \"v1\", developerKey=api_key) res = service.cse().list(q=search_term, cx=cse_id, **kwargs).execute() return res['items'] results = google_search('\"god is a woman\" \"thank you next\" \"7 rings\"', my_api_key, my_cse_id, num=10) for result in results: print(result) !pip install -U langchain-google-community import os os.environ[\"GOOGLE_CSE_ID\"] = os.getenv(\"GOOGLE_CSE_ID\") os.environ[\"GOOGLE_API_KEY\"] = os.getenv(\"GOOGLE_API_KEY\") from langchain_google_community import GoogleSearchAPIWrapper from langchain_core.tools import Tool search = GoogleSearchAPIWrapper() tool = Tool( name=\"google_search\", description=\"Search Google for recent results.\", func=search.run, ) tool.run(\"Obama's first name?\") RAG 1.SemanticSimilarityExampleSelector:使用嵌入模型来计算输入与少量样本示例之间的相似性，并使用向量存储来执行最近邻搜索.\nfrom langchain_chroma import Chroma from langchain_core.example_selectors import SemanticSimilarityExampleSelector from langchain_openai import OpenAIEmbeddings example_selector = SemanticSimilarityExampleSelector.from_examples( # This is the list of examples available to select from. examples, # This is the embedding class used to produce embeddings which are used to measure semantic similarity. OpenAIEmbeddings(), # This is the VectorStore class that is used to store the embeddings and do a similarity search over. Chroma, # This is the number of examples to produce. k=1, ) # Select the most similar example to the input. question = \"Who was the father of Mary Ball Washington?\" selected_examples = example_selector.select_examples({\"question\": question}) print(f\"Examples most similar to the input: {question}\") for example in selected_examples: print(\"\\n\") for k, v in example.items(): print(f\"{k}: {v}\") prompt = FewShotPromptTemplate( example_selector=example_selector, example_prompt=example_prompt, suffix=\"Question: {input}\", input_variables=[\"input\"], ) print( prompt.invoke({\"input\": \"Who was the father of Mary Ball Washington?\"}).to_string() ) from langchain_chroma import Chroma from langchain_core.example_selectors import SemanticSimilarityExampleSelector from langchain_openai import OpenAIEmbeddings examples = [ {\"input\": \"2 🦜 2\", \"output\": \"4\"}, {\"input\": \"2 🦜 3\", \"output\": \"5\"}, {\"input\": \"2 🦜 4\", \"output\": \"6\"}, {\"input\": \"What did the cow say to the moon?\", \"output\": \"nothing at all\"}, { \"input\": \"Write me a poem about the moon\", \"output\": \"One for the moon, and one for me, who are we to talk about the moon?\", }, ] to_vectorize = [\" \".join(example.values()) for example in examples] embeddings = OpenAIEmbeddings() vectorstore = Chroma.from_texts(to_vectorize, embeddings, metadatas=examples) example_selector = SemanticSimilarityExampleSelector( vectorstore=vectorstore, k=2, ) # The prompt template will load examples by passing the input do the `select_examples` method example_selector.select_examples({\"input\": \"horse\"}) 未完待续！！！\n2.LlamaIndex\n未完待续！！！\n其他功能 未完待续！！！\n",
+  "wordCount" : "4529",
+  "inLanguage": "zh",
+  "datePublished": "2024-07-28T00:18:23+08:00",
+  "dateModified": "2024-07-28T00:18:23+08:00",
+  "author":[{
+    "@type": "Person",
+    "name": "aliga"
+  }],
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://Aliga123.github.io/posts/ai-llm/langchin/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "aliga's Blog",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://Aliga123.github.io/img/Q.gif"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    (function () {
+        let  arr,reg = new RegExp("(^| )"+"change-themes"+"=([^;]*)(;|$)");
+        if(arr = document.cookie.match(reg)) {
+        } else {
+            if (new Date().getHours() >= 19 || new Date().getHours() < 6) {
+                document.body.classList.add('dark');
+                localStorage.setItem("pref-theme", 'dark');
+            } else {
+                document.body.classList.remove('dark');
+                localStorage.setItem("pref-theme", 'light');
+            }
+        }
+    })()
+
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://Aliga123.github.io/" accesskey="h" title="Aliga&#39;s Blog (Alt + H)">
+            <img src="https://Aliga123.github.io/img/Q.gif" alt="logo" aria-label="logo"
+                 height="35">Aliga&#39;s Blog</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                         stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                         stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+                <ul class="lang-switch"><li>|</li>
+                </ul>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://Aliga123.github.io/search" title="🔍 搜索 (Alt &#43; /)" accesskey=/>
+                <span>🔍 搜索</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Aliga123.github.io/" title="🏠 主页">
+                <span>🏠 主页</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Aliga123.github.io/posts" title="📚 文章">
+                <span>📚 文章</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Aliga123.github.io/tags" title="🧩 标签">
+                <span>🧩 标签</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Aliga123.github.io/archives/" title="⏱️ 时间轴">
+                <span>⏱️ 时间轴</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Aliga123.github.io/about" title="🙋🏻‍♂️ 关于">
+                <span>🙋🏻‍♂️ 关于</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Aliga123.github.io/links" title="🤝 友链">
+                <span>🤝 友链</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main page">
+<style>
+    i[id*="post_meta_style"] {
+        display: flex;
+        align-items: center;
+        margin: 0 0 10px 0;
+    }
+</style>
+
+<article class="post-single">
+    <div id="single-content">
+        <header class="post-header">
+            <div class="breadcrumbs"><a href="https://Aliga123.github.io/">🏠 主页</a>&nbsp;»&nbsp;<a href="https://Aliga123.github.io/posts/">📚文章</a>&nbsp;»&nbsp;<a href="https://Aliga123.github.io/posts/ai-llm/">🧱 AI大模型应用开发</a></div>
+            <h1 class="post-title">
+                Langchin
+            </h1>
+            <div class="post-meta">
+
+<style>
+    i[id*="post_meta_style"] {
+        display: flex;
+        align-items: center;
+        margin: 0 0 10px 0;
+    }
+
+    .parent-post-meta {
+        display: flex;
+        flex-wrap: wrap;
+        opacity: 0.8;
+    }
+</style>
+
+<span class="parent-post-meta">
+    <span id="post_meta_style_1">
+        <span class="fa fa-calendar-check-o"></span>
+        <span>2024-07-28
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    
+    
+    
+    
+    
+    
+    
+    <span id="post_meta_style_3">
+        <span class="fa fa-file-word-o"></span>
+        <span>4529字
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_4">
+        <span class="fa fa-clock-o"></span>
+        <span>10分钟
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_5">
+        <span class="fa fa-user-o"></span>
+        <span>aliga
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_6">
+        <span class="fa fa-tags" style="opacity: 0.8"></span>
+        <span>
+            <span class="post-tags-meta">
+                <a href="https://Aliga123.github.io/tags/langchin/" style="color: var(--secondary)!important;">Langchin</a>
+            </span>
+        </span>
+    </span>
+</span>
+<span style="opacity: 0.8;">
+                    <span id="post_meta_style_7">
+                        &nbsp;&nbsp;
+                        <span class="fa fa-eye" ></span>
+                        <span>
+                            <span id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv"></span></span>
+                            &nbsp;&nbsp;
+                        </span>
+                    </span>
+                    <span id="post_meta_style_8">
+                        <span class="fa fa-commenting-o"></span>
+                        <span>
+                            <script src="https://cdn.staticfile.org/twikoo/1.5.8/twikoo.all.min.js"></script>
+                            <script>
+                                let url = document.documentURI
+                                
+                                let dnsUrl = "https://Aliga123.github.io/"
+                                let urlSplit = url.split(dnsUrl)
+                                let finalUrl = urlSplit[1]
+                                if (finalUrl[0] !== '/') {
+                                    finalUrl = '/'+finalUrl
+                                }
+                                twikoo.getCommentsCount({
+                                    envId:  null , 
+                                region:  null , 
+                                urls: [ 
+                                    
+                                    finalUrl,
+                                ],
+                                    includeReply: false 
+                                }).then(function (res) {
+                                    let count = res[0].count
+                                    const obj = document.getElementById("comment_count");
+                                    obj.innerText = count
+                                    
+                                    
+                                    
+                                }).catch(function (err) {
+                                    
+                                    console.error(err);
+                                });
+                            </script>
+                            <span id="comment_count"></span>
+                        </span>
+                    </span>
+                </span>
+
+</div>
+        </header> <aside id="toc-container" class="toc-container wide">
+    <div class="toc">
+        <details  open>
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">目录</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#langchain-%e7%9a%84%e6%a0%b8%e5%bf%83%e5%8a%9f%e8%83%bd" aria-label="LangChain 的核心功能">LangChain 的核心功能</a><ul>
+                        
+                <li>
+                    <a href="#%e5%8a%a0%e8%bd%bd%e5%a4%a7%e6%a8%a1%e5%9e%8b" aria-label="加载大模型">加载大模型</a></li>
+                <li>
+                    <a href="#prompt" aria-label="Prompt">Prompt</a></li>
+                <li>
+                    <a href="#%e6%a0%bc%e5%bc%8f%e5%8c%96%e8%be%93%e5%87%ba" aria-label="格式化输出">格式化输出</a></li>
+                <li>
+                    <a href="#%e6%9e%84%e5%bb%bachain" aria-label="构建chain">构建chain</a></li>
+                <li>
+                    <a href="#%e6%b7%bb%e5%8a%a0%e5%8e%86%e5%8f%b2%e8%ae%b0%e5%bd%95" aria-label="添加历史记录">添加历史记录</a></li>
+                <li>
+                    <a href="#toolsfunction-calling" aria-label="Tools（function calling）">Tools（function calling）</a></li>
+                <li>
+                    <a href="#rag" aria-label="RAG">RAG</a></li></ul>
+                </li>
+                <li>
+                    <a href="#%e5%85%b6%e4%bb%96%e5%8a%9f%e8%83%bd" aria-label="其他功能">其他功能</a>
+                </li>
+            </ul>
+        </div>
+        </details>
+    </div>
+</aside>
+<script>
+    let activeElement;
+    let elements;
+    window.addEventListener('DOMContentLoaded', function (event) {
+        checkTocPosition();
+
+        elements = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');
+        
+        activeElement = elements[0];
+        const id = encodeURI(activeElement.getAttribute('id')).toLowerCase();
+        document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+    }, false);
+
+    window.addEventListener('resize', function(event) {
+        checkTocPosition();
+    }, false);
+
+    window.addEventListener('scroll', () => {
+        
+        if (elements) {
+            activeElement = Array.from(elements).find((element) => {
+                if ((getOffsetTop(element) - window.pageYOffset) > 0 &&
+                    (getOffsetTop(element) - window.pageYOffset) < window.innerHeight/2) {
+                    return element;
+                }
+            }) || activeElement
+
+            elements.forEach(element => {
+                const id = encodeURI(element.getAttribute('id')).toLowerCase();
+                if (element === activeElement){
+                    document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+                } else {
+                    document.querySelector(`.inner ul li a[href="#${id}"]`).classList.remove('active');
+                }
+            })
+        }
+    }, false);
+
+    const main = parseInt(getComputedStyle(document.body).getPropertyValue('--article-width'), 10);
+    const toc = parseInt(getComputedStyle(document.body).getPropertyValue('--toc-width'), 10);
+    const gap = parseInt(getComputedStyle(document.body).getPropertyValue('--gap'), 10);
+
+    function checkTocPosition() {
+        const width = document.body.scrollWidth;
+        if (width - main - (toc * 2) - (gap * 4) > 0) {
+            document.getElementById("toc-container").classList.add("wide");
+        } else {
+            document.getElementById("toc-container").classList.remove("wide");
+        }
+    }
+
+    function getOffsetTop(element) {
+        if (!element.getClientRects().length) {
+            return 0;
+        }
+        let rect = element.getBoundingClientRect();
+        let win = element.ownerDocument.defaultView;
+        return rect.top + win.pageYOffset;
+    }
+</script>
+        <div class="post-content"><p><strong>环境设置</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># 加载环境变量</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> dotenv <span style="color:#f92672">import</span> load_dotenv, find_dotenv
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> os
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>_ <span style="color:#f92672">=</span> load_dotenv(find_dotenv())  <span style="color:#75715e"># 读取本地 .env 文件，里面定义了 OPENAI_API_KEY</span>
+</span></span></code></pre></div><p><strong>（可选）启用LangSmith</strong>：我们可以看到每次运行被记录到 LangSmith（免费是4000次），并且可以看到LangSmith 的跟踪https://smith.langchain.com/public/88baa0b2-7c1a-4d09-ba30-a47985dde2ea/r</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>os<span style="color:#f92672">.</span>environ[<span style="color:#e6db74">&#34;LANGCHAIN_TRACING_V2&#34;</span>] <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;true&#34;</span>
+</span></span><span style="display:flex;"><span>os<span style="color:#f92672">.</span>environ[<span style="color:#e6db74">&#34;LANGCHAIN_API_KEY&#34;</span>] <span style="color:#f92672">=</span> os<span style="color:#f92672">.</span>getenv(<span style="color:#e6db74">&#34;LANGCHAIN_API_KEY&#34;</span>)
+</span></span></code></pre></div><h1 id="langchain-的核心功能">LangChain 的核心功能<a hidden class="anchor" aria-hidden="true" href="#langchain-的核心功能">#</a></h1>
+<h2 id="加载大模型">加载大模型<a hidden class="anchor" aria-hidden="true" href="#加载大模型">#</a></h2>
+<p><strong>1.API</strong></p>
+<p>在构建ChatModel时，我们有一些标准化的参数:</p>
+<ul>
+<li>model：模型的名称</li>
+<li>temperature：采样温度</li>
+<li>timeout： 请求超时</li>
+<li>max_tokens：生成的最大令牌数</li>
+<li>stop：默认停止序列</li>
+<li>max_retries：重试请求的最大次数</li>
+<li>api_key：模型提供者的 API 密钥</li>
+<li>base_url：发送请求的端点</li>
+</ul>
+<p>大模型参考API：https://python.langchain.com/v0.2/docs/integrations/platforms/</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># 1.openai</span>
+</span></span><span style="display:flex;"><span>os<span style="color:#f92672">.</span>environ[<span style="color:#e6db74">&#34;OPENAI_API_KEY&#34;</span>] <span style="color:#f92672">=</span> os<span style="color:#f92672">.</span>getenv(<span style="color:#e6db74">&#34;OPENAI_API_KEY&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> langchain_openai <span style="color:#f92672">import</span> ChatOpenAI
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>model <span style="color:#f92672">=</span> ChatOpenAI(model<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;gpt-4o-mini-2024-07-18&#34;</span>)
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># 2.Azure</span>
+</span></span><span style="display:flex;"><span>os<span style="color:#f92672">.</span>environ[<span style="color:#e6db74">&#34;AZURE_OPENAI_API_KEY&#34;</span>] <span style="color:#f92672">=</span> os<span style="color:#f92672">.</span>getenv(<span style="color:#e6db74">&#34;AZURE_OPENAI_API_KEY&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> langchain_openai <span style="color:#f92672">import</span> AzureChatOpenAI
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>llm <span style="color:#f92672">=</span> AzureChatOpenAI(
+</span></span><span style="display:flex;"><span>    azure_endpoint<span style="color:#f92672">=</span>os<span style="color:#f92672">.</span>environ[<span style="color:#e6db74">&#34;AZURE_OPENAI_ENDPOINT&#34;</span>],
+</span></span><span style="display:flex;"><span>    azure_deployment<span style="color:#f92672">=</span>os<span style="color:#f92672">.</span>environ[<span style="color:#e6db74">&#34;AZURE_OPENAI_DEPLOYMENT_NAME&#34;</span>],
+</span></span><span style="display:flex;"><span>    openai_api_version<span style="color:#f92672">=</span>os<span style="color:#f92672">.</span>environ[<span style="color:#e6db74">&#34;AZURE_OPENAI_API_VERSION&#34;</span>],
+</span></span><span style="display:flex;"><span>)
+</span></span></code></pre></div><p><strong>2.<a href="https://python.langchain.com/v0.2/docs/how_to/local_llms/">本地模型</a></strong></p>
+<p><strong>（1）评估</strong></p>
+<p>这些法学硕士可以从至少两个维度进行评估：</p>
+<ol>
+<li><code>Base model</code>：基础模型是什么以及它是如何训练的？</li>
+<li><code>Fine-tuning approach</code>：基础模型是否经过微调？如果是，使用了哪<a href="https://cameronrwolfe.substack.com/p/beyond-llama-the-power-of-open-llms#%C2%A7alpaca-an-instruction-following-llama-model">组指令？</a></li>
+</ol>
+<p>可以使用多个排行榜来评估这些模型的相对性能，其中包括：</p>
+<ol>
+<li><a href="https://chat.lmsys.org/?arena">系统管理软件</a></li>
+<li><a href="https://gpt4all.io/index.html">GPT4All</a></li>
+<li><a href="https://huggingface.co/spaces/lmsys/chatbot-arena-leaderboard">拥抱脸</a></li>
+</ol>
+<p><strong>（2）支持在各种设备上推理开源 LLM 的框架</strong></p>
+<ol>
+<li><a href="https://github.com/ggerganov/llama.cpp"><code>llama.cpp</code></a><a href="https://finbarr.ca/how-is-llama-cpp-possible/">：带有权重优化/量化</a>的 llama 推理代码的 C++ 实现</li>
+<li><a href="https://docs.gpt4all.io/index.html"><code>gpt4all</code></a>：优化 C 后端以进行推理</li>
+<li><a href="https://ollama.ai/"><code>Ollama</code></a>：将模型权重和环境捆绑到在设备上运行并为 LLM 提供服务的应用程序中</li>
+<li><a href="https://github.com/Mozilla-Ocho/llamafile"><code>llamafile</code></a>：将模型权重和运行模型所需的所有内容捆绑在一个文件中，使您可以从此文件在本地运行 LLM，而无需任何额外的安装步骤</li>
+</ol>
+<p>一般来说，这些框架会做几件事：</p>
+<ol>
+<li><code>Quantization</code>：减少原始模型权重的内存占用</li>
+<li><code>Efficient implementation for inference</code>：支持在消费硬件（例如 CPU 或笔记本电脑 GPU）上进行推理</li>
+</ol>
+<h2 id="prompt">Prompt<a hidden class="anchor" aria-hidden="true" href="#prompt">#</a></h2>
+<p><strong>1.PromptTemplate：适用于只需要用户输入</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> langchain_core.prompts <span style="color:#f92672">import</span> PromptTemplate
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>prompt_template <span style="color:#f92672">=</span> PromptTemplate<span style="color:#f92672">.</span>from_template(<span style="color:#e6db74">&#34;Tell me a joke about </span><span style="color:#e6db74">{topic}</span><span style="color:#e6db74">&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>prompt_template<span style="color:#f92672">.</span>invoke({<span style="color:#e6db74">&#34;topic&#34;</span>: <span style="color:#e6db74">&#34;cats&#34;</span>})
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># 部分格式化提示模板</span>
+</span></span><span style="display:flex;"><span>prompt <span style="color:#f92672">=</span> PromptTemplate(
+</span></span><span style="display:flex;"><span>    template<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Tell me a </span><span style="color:#e6db74">{adjective}</span><span style="color:#e6db74"> joke about the day </span><span style="color:#e6db74">{date}</span><span style="color:#e6db74">&#34;</span>,
+</span></span><span style="display:flex;"><span>    input_variables<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#34;adjective&#34;</span>],
+</span></span><span style="display:flex;"><span>    partial_variables<span style="color:#f92672">=</span>{<span style="color:#e6db74">&#34;date&#34;</span>: <span style="color:#e6db74">&#34;2024.7.23&#34;</span>},
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>print(prompt<span style="color:#f92672">.</span>format(adjective<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;funny&#34;</span>))
+</span></span></code></pre></div><p><strong>2.ChatPromptTemplates：包含system、user</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> langchain_core.prompts <span style="color:#f92672">import</span> ChatPromptTemplate
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>prompt_template <span style="color:#f92672">=</span> ChatPromptTemplate<span style="color:#f92672">.</span>from_messages([
+</span></span><span style="display:flex;"><span>    (<span style="color:#e6db74">&#34;system&#34;</span>, <span style="color:#e6db74">&#34;You are a helpful assistant&#34;</span>),
+</span></span><span style="display:flex;"><span>    (<span style="color:#e6db74">&#34;user&#34;</span>, <span style="color:#e6db74">&#34;Tell me a joke about </span><span style="color:#e6db74">{topic}</span><span style="color:#e6db74">&#34;</span>)
+</span></span><span style="display:flex;"><span>])
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>prompt_template<span style="color:#f92672">.</span>invoke({<span style="color:#e6db74">&#34;topic&#34;</span>: <span style="color:#e6db74">&#34;cats&#34;</span>})
+</span></span></code></pre></div><p><strong>3.MessagesPlaceholder：消息占位符</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> langchain_core.prompts <span style="color:#f92672">import</span> ChatPromptTemplate, MessagesPlaceholder
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> langchain_core.messages <span style="color:#f92672">import</span> HumanMessage
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>prompt_template <span style="color:#f92672">=</span> ChatPromptTemplate<span style="color:#f92672">.</span>from_messages([
+</span></span><span style="display:flex;"><span>    (<span style="color:#e6db74">&#34;system&#34;</span>, <span style="color:#e6db74">&#34;You are a helpful assistant&#34;</span>),
+</span></span><span style="display:flex;"><span>    MessagesPlaceholder(<span style="color:#e6db74">&#34;msgs&#34;</span>)
+</span></span><span style="display:flex;"><span>])
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>prompt_template<span style="color:#f92672">.</span>invoke({<span style="color:#e6db74">&#34;msgs&#34;</span>: [HumanMessage(content<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;hi!&#34;</span>)]})
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># 或者第二种表示</span>
+</span></span><span style="display:flex;"><span>prompt_template <span style="color:#f92672">=</span> ChatPromptTemplate<span style="color:#f92672">.</span>from_messages([
+</span></span><span style="display:flex;"><span>    (<span style="color:#e6db74">&#34;system&#34;</span>, <span style="color:#e6db74">&#34;You are a helpful assistant&#34;</span>),
+</span></span><span style="display:flex;"><span>    (<span style="color:#e6db74">&#34;placeholder&#34;</span>, <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{msgs}</span><span style="color:#e6db74">&#34;</span>) <span style="color:#75715e"># &lt;-- This is the changed part</span>
+</span></span><span style="display:flex;"><span>])
+</span></span><span style="display:flex;"><span>prompt_template<span style="color:#f92672">.</span>invoke({<span style="color:#e6db74">&#34;msgs&#34;</span>: [HumanMessage(content<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;hi!&#34;</span>)]})
+</span></span></code></pre></div><p><strong>4.FewShotPromptTemplate、FewShotChatMessagePromptTemplate：给prompt添加少量样本</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>examples <span style="color:#f92672">=</span> [
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;question&#34;</span>: <span style="color:#e6db74">&#34;Who lived longer, Muhammad Ali or Alan Turing?&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;answer&#34;</span>: <span style="color:#e6db74">&#34;&#34;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">Are follow up questions needed here: Yes.
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">Follow up: How old was Muhammad Ali when he died?
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">Intermediate answer: Muhammad Ali was 74 years old when he died.
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">Follow up: How old was Alan Turing when he died?
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">Intermediate answer: Alan Turing was 41 years old when he died.
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">So the final answer is: Muhammad Ali
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;&#34;&#34;</span>,
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;question&#34;</span>: <span style="color:#e6db74">&#34;When was the founder of craigslist born?&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;answer&#34;</span>: <span style="color:#e6db74">&#34;&#34;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">Are follow up questions needed here: Yes.
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">Follow up: Who was the founder of craigslist?
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">Intermediate answer: Craigslist was founded by Craig Newmark.
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">Follow up: When was Craig Newmark born?
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">Intermediate answer: Craig Newmark was born on December 6, 1952.
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">So the final answer is: December 6, 1952
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;&#34;&#34;</span>,
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>]
+</span></span></code></pre></div><p>（1）PromptTemplate + FewShotPromptTemplate</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> langchain_core.prompts <span style="color:#f92672">import</span> PromptTemplate
+</span></span><span style="display:flex;"><span>example_prompt <span style="color:#f92672">=</span> PromptTemplate<span style="color:#f92672">.</span>from_template(<span style="color:#e6db74">&#34;Question: </span><span style="color:#e6db74">{question}</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">{answer}</span><span style="color:#e6db74">&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> langchain_core.prompts <span style="color:#f92672">import</span> FewShotPromptTemplate
+</span></span><span style="display:flex;"><span>prompt <span style="color:#f92672">=</span> FewShotPromptTemplate(
+</span></span><span style="display:flex;"><span>    examples<span style="color:#f92672">=</span>examples,
+</span></span><span style="display:flex;"><span>    example_prompt<span style="color:#f92672">=</span>example_prompt,
+</span></span><span style="display:flex;"><span>    suffix<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Question: </span><span style="color:#e6db74">{input}</span><span style="color:#e6db74">&#34;</span>,
+</span></span><span style="display:flex;"><span>    input_variables<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#34;input&#34;</span>],
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>print(
+</span></span><span style="display:flex;"><span>    prompt<span style="color:#f92672">.</span>invoke({<span style="color:#e6db74">&#34;input&#34;</span>: <span style="color:#e6db74">&#34;Who was the father of Mary Ball Washington?&#34;</span>})<span style="color:#f92672">.</span>to_string()
+</span></span><span style="display:flex;"><span>)
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> langchain_core.prompts <span style="color:#f92672">import</span> ChatPromptTemplate, FewShotChatMessagePromptTemplate
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># This is a prompt template used to format each individual example.</span>
+</span></span><span style="display:flex;"><span>example_prompt <span style="color:#f92672">=</span> ChatPromptTemplate<span style="color:#f92672">.</span>from_messages(
+</span></span><span style="display:flex;"><span>    [
+</span></span><span style="display:flex;"><span>        (<span style="color:#e6db74">&#34;human&#34;</span>, <span style="color:#e6db74">&#34;Question: </span><span style="color:#e6db74">{question}</span><span style="color:#e6db74">&#34;</span>),
+</span></span><span style="display:flex;"><span>        (<span style="color:#e6db74">&#34;ai&#34;</span>, <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{answer}</span><span style="color:#e6db74">&#34;</span>),
+</span></span><span style="display:flex;"><span>    ]
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>few_shot_prompt <span style="color:#f92672">=</span> FewShotChatMessagePromptTemplate(
+</span></span><span style="display:flex;"><span>    example_prompt<span style="color:#f92672">=</span>example_prompt,
+</span></span><span style="display:flex;"><span>    examples<span style="color:#f92672">=</span>examples,
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#print(few_shot_prompt.invoke({}).to_messages())</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>final_prompt <span style="color:#f92672">=</span> ChatPromptTemplate<span style="color:#f92672">.</span>from_messages(
+</span></span><span style="display:flex;"><span>    [
+</span></span><span style="display:flex;"><span>        (<span style="color:#e6db74">&#34;system&#34;</span>, <span style="color:#e6db74">&#34;You are a QA bot.&#34;</span>),
+</span></span><span style="display:flex;"><span>        few_shot_prompt,
+</span></span><span style="display:flex;"><span>        (<span style="color:#e6db74">&#34;human&#34;</span>, <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{input}</span><span style="color:#e6db74">&#34;</span>),
+</span></span><span style="display:flex;"><span>    ]
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>final_prompt<span style="color:#f92672">.</span>invoke({<span style="color:#e6db74">&#34;input&#34;</span>: <span style="color:#e6db74">&#34;Who was the father of Mary Ball Washington?&#34;</span>})
+</span></span></code></pre></div><p><strong>5.messages:由一系列消息组成</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> langchain_core.messages <span style="color:#f92672">import</span> AIMessage, HumanMessage, SystemMessage
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 注意：最后用户的输入必须是&#34;{}&#34;的形式，不能使用HumanMessage</span>
+</span></span><span style="display:flex;"><span>prompt <span style="color:#f92672">=</span> (
+</span></span><span style="display:flex;"><span>    SystemMessage(content<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;You are a nice Mathematician.&#34;</span>) <span style="color:#f92672">+</span>
+</span></span><span style="display:flex;"><span>    HumanMessage(content<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Can you help me with some math?&#34;</span>) <span style="color:#f92672">+</span>
+</span></span><span style="display:flex;"><span>    AIMessage(content<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Sure, tell me your question.&#34;</span>) <span style="color:#f92672">+</span> 
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{user_input}</span><span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>query <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;What is 3 * 12? Also, what is 11 + 49?&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#prompt.invoke({&#34;user_input&#34;: query})</span>
+</span></span><span style="display:flex;"><span>prompt<span style="color:#f92672">.</span>format_messages(user_input<span style="color:#f92672">=</span>query)
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>prompt<span style="color:#f92672">.</span>append(AIMessage(content<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Sure, tell me your question.&#34;</span>))
+</span></span><span style="display:flex;"><span>prompt<span style="color:#f92672">.</span>format_messages(user_input<span style="color:#f92672">=</span>query)
+</span></span></code></pre></div><p><strong>6.PipelinePromptTemplate</strong>:想要重用提示的部分内容时，该类非常有用</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> langchain_core.prompts <span style="color:#f92672">import</span> PipelinePromptTemplate, PromptTemplate
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>full_prompt <span style="color:#f92672">=</span> PromptTemplate<span style="color:#f92672">.</span>from_template(
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;&#34;&#34;</span><span style="color:#e6db74">{introduction}</span><span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74"></span><span style="color:#e6db74">{example}</span><span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74"></span><span style="color:#e6db74">{start}</span><span style="color:#e6db74">&#34;&#34;&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>introduction_prompt <span style="color:#f92672">=</span> PromptTemplate<span style="color:#f92672">.</span>from_template(<span style="color:#e6db74">&#34;You are impersonating </span><span style="color:#e6db74">{person}</span><span style="color:#e6db74">.&#34;</span>)
+</span></span><span style="display:flex;"><span> 
+</span></span><span style="display:flex;"><span>example_prompt <span style="color:#f92672">=</span> PromptTemplate<span style="color:#f92672">.</span>from_template(
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;&#34;&#34;Here&#39;s an example of an interaction:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">Q: </span><span style="color:#e6db74">{example_q}</span><span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">A: </span><span style="color:#e6db74">{example_a}</span><span style="color:#e6db74">&#34;&#34;&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>start_prompt <span style="color:#f92672">=</span> PromptTemplate<span style="color:#f92672">.</span>from_template(
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;&#34;&#34;Now, do this for real!
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">Q: </span><span style="color:#e6db74">{input}</span><span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">A:&#34;&#34;&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>input_prompts <span style="color:#f92672">=</span> [
+</span></span><span style="display:flex;"><span>    (<span style="color:#e6db74">&#34;introduction&#34;</span>, introduction_prompt),
+</span></span><span style="display:flex;"><span>    (<span style="color:#e6db74">&#34;example&#34;</span>, example_prompt),
+</span></span><span style="display:flex;"><span>    (<span style="color:#e6db74">&#34;start&#34;</span>, start_prompt),
+</span></span><span style="display:flex;"><span>]
+</span></span><span style="display:flex;"><span>pipeline_prompt <span style="color:#f92672">=</span> PipelinePromptTemplate(
+</span></span><span style="display:flex;"><span>    final_prompt<span style="color:#f92672">=</span>full_prompt, pipeline_prompts<span style="color:#f92672">=</span>input_prompts
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>pipeline_prompt<span style="color:#f92672">.</span>input_variables
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>print(
+</span></span><span style="display:flex;"><span>    pipeline_prompt<span style="color:#f92672">.</span>format(
+</span></span><span style="display:flex;"><span>        person<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Elon Musk&#34;</span>,
+</span></span><span style="display:flex;"><span>        example_q<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;What&#39;s your favorite car?&#34;</span>,
+</span></span><span style="display:flex;"><span>        example_a<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Tesla&#34;</span>,
+</span></span><span style="display:flex;"><span>        input<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;What&#39;s your favorite social media site?&#34;</span>,
+</span></span><span style="display:flex;"><span>    )
+</span></span><span style="display:flex;"><span>)
+</span></span></code></pre></div><h2 id="格式化输出">格式化输出<a hidden class="anchor" aria-hidden="true" href="#格式化输出">#</a></h2>
+<p><strong>方法一：使用pydantic，返回一个pydantic对象。可以根据输入内容自动选择输出格式</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> typing <span style="color:#f92672">import</span> Optional
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> typing <span style="color:#f92672">import</span> Union
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> langchain_core.pydantic_v1 <span style="color:#f92672">import</span> BaseModel, Field
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Joke</span>(BaseModel):
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;&#34;&#34;Joke to tell user.&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    setup: str <span style="color:#f92672">=</span> Field(description<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;The setup of the joke&#34;</span>)
+</span></span><span style="display:flex;"><span>    punchline: str <span style="color:#f92672">=</span> Field(description<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;The punchline to the joke&#34;</span>)
+</span></span><span style="display:flex;"><span>    rating: Optional[int] <span style="color:#f92672">=</span> Field(description<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;How funny the joke is, from 1 to 10&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ConversationalResponse</span>(BaseModel):
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;&#34;&#34;Respond in a conversational manner. Be kind and helpful.&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    response: str <span style="color:#f92672">=</span> Field(description<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;A conversational response to the user&#39;s query&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 让模型从多个模式中进行自动选择</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Response</span>(BaseModel):
+</span></span><span style="display:flex;"><span>    output: Union[Joke, ConversationalResponse]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>structured_llm <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>with_structured_output(Response)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>structured_llm<span style="color:#f92672">.</span>invoke(<span style="color:#e6db74">&#34;How are you today?&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#structured_llm.invoke(&#34;Tell me a joke about cats&#34;)</span>
+</span></span></code></pre></div><p><strong>方法二：JSON Schema，返回一个字典</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>json_schema <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;title&#34;</span>: <span style="color:#e6db74">&#34;joke&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;description&#34;</span>: <span style="color:#e6db74">&#34;Joke to tell user.&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;object&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;properties&#34;</span>: {
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;setup&#34;</span>: {
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;string&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;description&#34;</span>: <span style="color:#e6db74">&#34;The setup of the joke&#34;</span>,
+</span></span><span style="display:flex;"><span>        },
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;punchline&#34;</span>: {
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;string&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;description&#34;</span>: <span style="color:#e6db74">&#34;The punchline to the joke&#34;</span>,
+</span></span><span style="display:flex;"><span>        },
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;rating&#34;</span>: {
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;integer&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;description&#34;</span>: <span style="color:#e6db74">&#34;How funny the joke is, from 1 to 10&#34;</span>,
+</span></span><span style="display:flex;"><span>        },
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;required&#34;</span>: [<span style="color:#e6db74">&#34;setup&#34;</span>, <span style="color:#e6db74">&#34;punchline&#34;</span>],
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>structured_llm <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>with_structured_output(json_schema)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>structured_llm<span style="color:#f92672">.</span>invoke(<span style="color:#e6db74">&#34;Tell me a joke about cats&#34;</span>)
+</span></span></code></pre></div><p><strong>方法三：少量示例（few-shot）</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> langchain_core.prompts <span style="color:#f92672">import</span> ChatPromptTemplate
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>system <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;&#34;You are a hilarious comedian. Your specialty is knock-knock jokes. </span><span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span><span style="color:#e6db74">Return a joke which has the setup (the response to &#34;Who&#39;s there?&#34;) and the final punchline (the response to &#34;&lt;setup&gt; who?&#34;).
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">Here are some examples of jokes:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">example_user: Tell me a joke about planes
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">example_assistant: {{&#34;setup&#34;: &#34;Why don&#39;t planes ever get tired?&#34;, &#34;punchline&#34;: &#34;Because they have rest wings!&#34;, &#34;rating&#34;: 2}}
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">example_user: Tell me another joke about planes
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">example_assistant: {{&#34;setup&#34;: &#34;Cargo&#34;, &#34;punchline&#34;: &#34;Cargo &#39;vroom vroom&#39;, but planes go &#39;zoom zoom&#39;!&#34;, &#34;rating&#34;: 10}}
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">example_user: Now about caterpillars
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">example_assistant: {{&#34;setup&#34;: &#34;Caterpillar&#34;, &#34;punchline&#34;: &#34;Caterpillar really slow, but watch me turn into a butterfly and steal the show!&#34;, &#34;rating&#34;: 5}}&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>prompt <span style="color:#f92672">=</span> ChatPromptTemplate<span style="color:#f92672">.</span>from_messages([(<span style="color:#e6db74">&#34;system&#34;</span>, system), (<span style="color:#e6db74">&#34;human&#34;</span>, <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{input}</span><span style="color:#e6db74">&#34;</span>)])
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>few_shot_structured_llm <span style="color:#f92672">=</span> prompt <span style="color:#f92672">|</span> model
+</span></span><span style="display:flex;"><span>few_shot_structured_llm<span style="color:#f92672">.</span>invoke(<span style="color:#e6db74">&#34;what&#39;s something funny about woodpeckers&#34;</span>)
+</span></span></code></pre></div><p>**方法四：**并非所有模型都支持.with_structured_output()，因此使用内置函数PydanticOutputParser来解析提示与给定的 Pydantic 模式匹配的llm的输出到Prompt中。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> typing <span style="color:#f92672">import</span> List
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> langchain_core.output_parsers <span style="color:#f92672">import</span> PydanticOutputParser
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> langchain_core.prompts <span style="color:#f92672">import</span> ChatPromptTemplate
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> langchain_core.pydantic_v1 <span style="color:#f92672">import</span> BaseModel, Field
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Person</span>(BaseModel):
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;&#34;&#34;Information about a person.&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    name: str <span style="color:#f92672">=</span> Field(<span style="color:#f92672">...</span>, description<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;The name of the person&#34;</span>)
+</span></span><span style="display:flex;"><span>    height_in_meters: float <span style="color:#f92672">=</span> Field(
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">...</span>, description<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;The height of the person expressed in meters.&#34;</span>
+</span></span><span style="display:flex;"><span>    )
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">People</span>(BaseModel):
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;&#34;&#34;Identifying information about all people in a text.&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    people: List[Person]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Set up a parser</span>
+</span></span><span style="display:flex;"><span>parser <span style="color:#f92672">=</span> PydanticOutputParser(pydantic_object<span style="color:#f92672">=</span>People)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Prompt</span>
+</span></span><span style="display:flex;"><span>prompt <span style="color:#f92672">=</span> ChatPromptTemplate<span style="color:#f92672">.</span>from_messages(
+</span></span><span style="display:flex;"><span>    [
+</span></span><span style="display:flex;"><span>        (
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;system&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;Answer the user query. Wrap the output in `json` tags</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">{format_instructions}</span><span style="color:#e6db74">&#34;</span>,
+</span></span><span style="display:flex;"><span>        ),
+</span></span><span style="display:flex;"><span>        (<span style="color:#e6db74">&#34;human&#34;</span>, <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{query}</span><span style="color:#e6db74">&#34;</span>),
+</span></span><span style="display:flex;"><span>    ]
+</span></span><span style="display:flex;"><span>)<span style="color:#f92672">.</span>partial(format_instructions<span style="color:#f92672">=</span>parser<span style="color:#f92672">.</span>get_format_instructions())
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>query <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Anna is 23 years old and she is 6 feet tall&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>print(prompt<span style="color:#f92672">.</span>invoke(query)<span style="color:#f92672">.</span>to_string())
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># 再次使用parser，又可以把输出转换成Parser对象</span>
+</span></span><span style="display:flex;"><span>chain <span style="color:#f92672">=</span> prompt <span style="color:#f92672">|</span> model <span style="color:#f92672">|</span> parser
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>chain<span style="color:#f92672">.</span>invoke({<span style="color:#e6db74">&#34;query&#34;</span>: query})
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># Prompt</span>
+</span></span><span style="display:flex;"><span>prompt <span style="color:#f92672">=</span> ChatPromptTemplate<span style="color:#f92672">.</span>from_messages(
+</span></span><span style="display:flex;"><span>    [
+</span></span><span style="display:flex;"><span>        (
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;system&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;Answer the user query. Wrap the output in `json` tags</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">{schema}</span><span style="color:#e6db74">&#34;</span>,
+</span></span><span style="display:flex;"><span>        ),
+</span></span><span style="display:flex;"><span>        (<span style="color:#e6db74">&#34;human&#34;</span>, <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{query}</span><span style="color:#e6db74">&#34;</span>),
+</span></span><span style="display:flex;"><span>    ]
+</span></span><span style="display:flex;"><span>)<span style="color:#f92672">.</span>partial(schema<span style="color:#f92672">=</span>People<span style="color:#f92672">.</span>schema())
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>query <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Anna is 23 years old and she is 6 feet tall&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>print(prompt<span style="color:#f92672">.</span>format_prompt(query<span style="color:#f92672">=</span>query)<span style="color:#f92672">.</span>to_string())
+</span></span></code></pre></div><h2 id="构建chain">构建chain<a hidden class="anchor" aria-hidden="true" href="#构建chain">#</a></h2>
+<p><strong>1. LangChain Expression Language (LCEL): |</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> langchain_core.output_parsers <span style="color:#f92672">import</span> StrOutputParser
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> langchain_core.prompts <span style="color:#f92672">import</span> ChatPromptTemplate
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>prompt <span style="color:#f92672">=</span> ChatPromptTemplate<span style="color:#f92672">.</span>from_template(<span style="color:#e6db74">&#34;tell me a joke about </span><span style="color:#e6db74">{user_input}</span><span style="color:#e6db74">&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>chain <span style="color:#f92672">=</span> prompt <span style="color:#f92672">|</span> model <span style="color:#f92672">|</span> StrOutputParser()
+</span></span><span style="display:flex;"><span>chain<span style="color:#f92672">.</span>invoke({<span style="color:#e6db74">&#34;user_input&#34;</span>: <span style="color:#e6db74">&#34;bears&#34;</span>})
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># 第二种方法</span>
+</span></span><span style="display:flex;"><span>composed_chain <span style="color:#f92672">=</span> {<span style="color:#e6db74">&#34;user_input&#34;</span>: chain} <span style="color:#f92672">|</span> prompt <span style="color:#f92672">|</span> model <span style="color:#f92672">|</span> StrOutputParser()
+</span></span><span style="display:flex;"><span>composed_chain<span style="color:#f92672">.</span>invoke({<span style="color:#e6db74">&#34;user_input&#34;</span>: <span style="color:#e6db74">&#34;bears&#34;</span>})
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#composed_chain.invoke({&#34;bears&#34;}) #只有一个参数还可以直接传</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># 第三种方法，RunnablePassthrough直接过去原参数</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> langchain_core.runnables <span style="color:#f92672">import</span> RunnablePassthrough
+</span></span><span style="display:flex;"><span>Runnable_chain <span style="color:#f92672">=</span> {<span style="color:#e6db74">&#34;user_input&#34;</span>:  RunnablePassthrough()} <span style="color:#f92672">|</span> prompt <span style="color:#f92672">|</span> model <span style="color:#f92672">|</span> StrOutputParser()
+</span></span><span style="display:flex;"><span>Runnable_chain<span style="color:#f92672">.</span>invoke(<span style="color:#e6db74">&#34;bears&#34;</span>)
+</span></span></code></pre></div><p><strong>2. pipe()</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> langchain_core.runnables <span style="color:#f92672">import</span> RunnableParallel
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>composed_chain_with_pipe <span style="color:#f92672">=</span> RunnableParallel({<span style="color:#e6db74">&#34;user_input&#34;</span>: chain})<span style="color:#f92672">.</span>pipe(
+</span></span><span style="display:flex;"><span>    prompt, model, StrOutputParser()
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>composed_chain_with_pipe<span style="color:#f92672">.</span>invoke({<span style="color:#e6db74">&#34;user_input&#34;</span>: <span style="color:#e6db74">&#34;bears&#34;</span>})
+</span></span></code></pre></div><h2 id="添加历史记录">添加历史记录<a hidden class="anchor" aria-hidden="true" href="#添加历史记录">#</a></h2>
+<p><strong>1.使用SQLite数据库保存</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> langchain_community.chat_message_histories <span style="color:#f92672">import</span> SQLChatMessageHistory
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># session_id是这些输入消息对应的会话（对话）线程的标识符。这允许您同时维护同一链中的多个对话/线程。</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">get_session_history</span>(session_id):
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> SQLChatMessageHistory(session_id, <span style="color:#e6db74">&#34;sqlite:///memory.db&#34;</span>)  <span style="color:#75715e"># 历史对话会保存在当前项目的memory.db文件里</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> langchain_core.messages <span style="color:#f92672">import</span> HumanMessage
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> langchain_core.prompts <span style="color:#f92672">import</span> ChatPromptTemplate, MessagesPlaceholder
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> langchain_core.runnables.history <span style="color:#f92672">import</span> RunnableWithMessageHistory
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>prompt <span style="color:#f92672">=</span> ChatPromptTemplate<span style="color:#f92672">.</span>from_messages(
+</span></span><span style="display:flex;"><span>    [
+</span></span><span style="display:flex;"><span>        (
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;system&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;You&#39;re an assistant who speaks in </span><span style="color:#e6db74">{language}</span><span style="color:#e6db74">. Respond in 20 words or fewer&#34;</span>,
+</span></span><span style="display:flex;"><span>        ),
+</span></span><span style="display:flex;"><span>        MessagesPlaceholder(variable_name<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;history&#34;</span>),
+</span></span><span style="display:flex;"><span>        (<span style="color:#e6db74">&#34;human&#34;</span>, <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{input}</span><span style="color:#e6db74">&#34;</span>),
+</span></span><span style="display:flex;"><span>    ]
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>runnable <span style="color:#f92672">=</span> prompt <span style="color:#f92672">|</span> model
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>runnable_with_history <span style="color:#f92672">=</span> RunnableWithMessageHistory(
+</span></span><span style="display:flex;"><span>    runnable,
+</span></span><span style="display:flex;"><span>    get_session_history,
+</span></span><span style="display:flex;"><span>    input_messages_key<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;input&#34;</span>,
+</span></span><span style="display:flex;"><span>    history_messages_key<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;history&#34;</span>,
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>runnable_with_history<span style="color:#f92672">.</span>invoke(
+</span></span><span style="display:flex;"><span>    {<span style="color:#e6db74">&#34;language&#34;</span>: <span style="color:#e6db74">&#34;italian&#34;</span>, <span style="color:#e6db74">&#34;input&#34;</span>: <span style="color:#e6db74">&#34;hi im bob!&#34;</span>},
+</span></span><span style="display:flex;"><span>    config<span style="color:#f92672">=</span>{<span style="color:#e6db74">&#34;configurable&#34;</span>: {<span style="color:#e6db74">&#34;session_id&#34;</span>: <span style="color:#e6db74">&#34;2&#34;</span>}},
+</span></span><span style="display:flex;"><span>)
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># 在这种情况下，上下文通过提供的聊天历史记录进行保留session_id，因此模型知道用户的姓名。</span>
+</span></span><span style="display:flex;"><span>runnable_with_history<span style="color:#f92672">.</span>invoke(
+</span></span><span style="display:flex;"><span>    {<span style="color:#e6db74">&#34;language&#34;</span>: <span style="color:#e6db74">&#34;italian&#34;</span>, <span style="color:#e6db74">&#34;input&#34;</span>: <span style="color:#e6db74">&#34;whats my name?&#34;</span>},
+</span></span><span style="display:flex;"><span>    config<span style="color:#f92672">=</span>{<span style="color:#e6db74">&#34;configurable&#34;</span>: {<span style="color:#e6db74">&#34;session_id&#34;</span>: <span style="color:#e6db74">&#34;2&#34;</span>}},
+</span></span><span style="display:flex;"><span>)
+</span></span></code></pre></div><p><strong>2.用户定制</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> langchain_core.runnables <span style="color:#f92672">import</span> ConfigurableFieldSpec
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">get_session_history</span>(user_id: str, conversation_id: str):
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> SQLChatMessageHistory(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{</span>user_id<span style="color:#e6db74">}</span><span style="color:#e6db74">--</span><span style="color:#e6db74">{</span>conversation_id<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>, <span style="color:#e6db74">&#34;sqlite:///memory.db&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>with_message_history <span style="color:#f92672">=</span> RunnableWithMessageHistory(
+</span></span><span style="display:flex;"><span>    runnable,
+</span></span><span style="display:flex;"><span>    get_session_history,
+</span></span><span style="display:flex;"><span>    input_messages_key<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;input&#34;</span>,
+</span></span><span style="display:flex;"><span>    history_messages_key<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;history&#34;</span>,
+</span></span><span style="display:flex;"><span>    history_factory_config<span style="color:#f92672">=</span>[
+</span></span><span style="display:flex;"><span>        ConfigurableFieldSpec(
+</span></span><span style="display:flex;"><span>            id<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;user_id&#34;</span>,
+</span></span><span style="display:flex;"><span>            annotation<span style="color:#f92672">=</span>str,
+</span></span><span style="display:flex;"><span>            name<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;User ID&#34;</span>,
+</span></span><span style="display:flex;"><span>            description<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Unique identifier for the user.&#34;</span>,
+</span></span><span style="display:flex;"><span>            default<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&#34;</span>,
+</span></span><span style="display:flex;"><span>            is_shared<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>,
+</span></span><span style="display:flex;"><span>        ),
+</span></span><span style="display:flex;"><span>        ConfigurableFieldSpec(
+</span></span><span style="display:flex;"><span>            id<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;conversation_id&#34;</span>,
+</span></span><span style="display:flex;"><span>            annotation<span style="color:#f92672">=</span>str,
+</span></span><span style="display:flex;"><span>            name<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Conversation ID&#34;</span>,
+</span></span><span style="display:flex;"><span>            description<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Unique identifier for the conversation.&#34;</span>,
+</span></span><span style="display:flex;"><span>            default<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&#34;</span>,
+</span></span><span style="display:flex;"><span>            is_shared<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>,
+</span></span><span style="display:flex;"><span>        ),
+</span></span><span style="display:flex;"><span>    ],
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>with_message_history<span style="color:#f92672">.</span>invoke(
+</span></span><span style="display:flex;"><span>    {<span style="color:#e6db74">&#34;language&#34;</span>: <span style="color:#e6db74">&#34;italian&#34;</span>, <span style="color:#e6db74">&#34;input&#34;</span>: <span style="color:#e6db74">&#34;hi im bob!&#34;</span>},
+</span></span><span style="display:flex;"><span>    config<span style="color:#f92672">=</span>{<span style="color:#e6db74">&#34;configurable&#34;</span>: {<span style="color:#e6db74">&#34;user_id&#34;</span>: <span style="color:#e6db74">&#34;123&#34;</span>, <span style="color:#e6db74">&#34;conversation_id&#34;</span>: <span style="color:#e6db74">&#34;1&#34;</span>}},
+</span></span><span style="display:flex;"><span>)
+</span></span></code></pre></div><h2 id="toolsfunction-calling">Tools（function calling）<a hidden class="anchor" aria-hidden="true" href="#toolsfunction-calling">#</a></h2>
+<p><strong>1.创建tool和调用</strong></p>
+<p>方式一：@tool装饰器+StructuredTool</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> langchain_core.tools <span style="color:#f92672">import</span> tool
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># parse_docstring=True对文档字符串进行解析。注意：函数描述和参数描述中间要空一行。</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@tool</span>(<span style="color:#e6db74">&#34;multiplication-tool&#34;</span>, parse_docstring<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>, return_direct<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">multiply</span>(a: int, b: int) <span style="color:#f92672">-&gt;</span> int:
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;&#34;&#34;Multiply two numbers.
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    Args:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        a: first number.
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        b: second number.
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    &#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> a <span style="color:#f92672">*</span> b
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>print(multiply<span style="color:#f92672">.</span>invoke({<span style="color:#e6db74">&#34;a&#34;</span>: <span style="color:#ae81ff">2</span>, <span style="color:#e6db74">&#34;b&#34;</span>: <span style="color:#ae81ff">3</span>}))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Let&#39;s inspect some of the attributes associated with the tool.</span>
+</span></span><span style="display:flex;"><span>print(multiply<span style="color:#f92672">.</span>name)
+</span></span><span style="display:flex;"><span>print(multiply<span style="color:#f92672">.</span>description)
+</span></span><span style="display:flex;"><span>print(multiply<span style="color:#f92672">.</span>args)
+</span></span><span style="display:flex;"><span>print(multiply<span style="color:#f92672">.</span>return_direct)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>multiply<span style="color:#f92672">.</span>args_schema<span style="color:#f92672">.</span>schema()
+</span></span></code></pre></div><p>方式二：@tool装饰器+pydantic</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> langchain_core.tools <span style="color:#f92672">import</span> tool
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> langchain.pydantic_v1 <span style="color:#f92672">import</span> BaseModel, Field
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 给参数添加描述</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">CalculatorInput</span>(BaseModel):
+</span></span><span style="display:flex;"><span>    a: int <span style="color:#f92672">=</span> Field(description<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;first number&#34;</span>)
+</span></span><span style="display:flex;"><span>    b: int <span style="color:#f92672">=</span> Field(description<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;second number&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@tool</span>(<span style="color:#e6db74">&#34;multiplication-tool&#34;</span>, args_schema<span style="color:#f92672">=</span>CalculatorInput, return_direct<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">multiply</span>(a: int, b: int) <span style="color:#f92672">-&gt;</span> int:
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;&#34;&#34;Multiply two numbers.&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> a <span style="color:#f92672">*</span> b
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>print(multiply<span style="color:#f92672">.</span>invoke({<span style="color:#e6db74">&#34;a&#34;</span>: <span style="color:#ae81ff">2</span>, <span style="color:#e6db74">&#34;b&#34;</span>: <span style="color:#ae81ff">3</span>}))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Let&#39;s inspect some of the attributes associated with the tool.</span>
+</span></span><span style="display:flex;"><span>print(multiply<span style="color:#f92672">.</span>name)
+</span></span><span style="display:flex;"><span>print(multiply<span style="color:#f92672">.</span>description)
+</span></span><span style="display:flex;"><span>print(multiply<span style="color:#f92672">.</span>args)
+</span></span><span style="display:flex;"><span>print(multiply<span style="color:#f92672">.</span>return_direct)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>multiply<span style="color:#f92672">.</span>args_schema<span style="color:#f92672">.</span>schema()
+</span></span></code></pre></div><p>方式三：StructuredTool+pydantic</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> langchain_core.tools <span style="color:#f92672">import</span> StructuredTool
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> langchain.pydantic_v1 <span style="color:#f92672">import</span> BaseModel, Field
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 对参数的描述</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">CalculatorInput</span>(BaseModel):
+</span></span><span style="display:flex;"><span>    a: int <span style="color:#f92672">=</span> Field(description<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;first number&#34;</span>)
+</span></span><span style="display:flex;"><span>    b: int <span style="color:#f92672">=</span> Field(description<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;second number&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">multiply</span>(a: int, b: int) <span style="color:#f92672">-&gt;</span> int:
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;&#34;&#34;Multiply two numbers.&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> a <span style="color:#f92672">*</span> b
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">async</span> <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">amultiply</span>(a: int, b: int) <span style="color:#f92672">-&gt;</span> int:
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;&#34;&#34;Multiply two numbers.&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> a <span style="color:#f92672">*</span> b
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>calculator <span style="color:#f92672">=</span> StructuredTool<span style="color:#f92672">.</span>from_function(
+</span></span><span style="display:flex;"><span>    func<span style="color:#f92672">=</span>multiply,
+</span></span><span style="display:flex;"><span>    name<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Calculator&#34;</span>,
+</span></span><span style="display:flex;"><span>    description<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;multiply numbers&#34;</span>,
+</span></span><span style="display:flex;"><span>    args_schema<span style="color:#f92672">=</span>CalculatorInput,
+</span></span><span style="display:flex;"><span>    return_direct<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>,
+</span></span><span style="display:flex;"><span>    coroutine<span style="color:#f92672">=</span> amultiply <span style="color:#75715e">#&lt;- 如果需要，您也可以指定异步方法</span>
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>print(calculator<span style="color:#f92672">.</span>invoke({<span style="color:#e6db74">&#34;a&#34;</span>: <span style="color:#ae81ff">2</span>, <span style="color:#e6db74">&#34;b&#34;</span>: <span style="color:#ae81ff">3</span>}))
+</span></span><span style="display:flex;"><span>print(<span style="color:#66d9ef">await</span> calculator<span style="color:#f92672">.</span>ainvoke({<span style="color:#e6db74">&#34;a&#34;</span>: <span style="color:#ae81ff">4</span>, <span style="color:#e6db74">&#34;b&#34;</span>: <span style="color:#ae81ff">3</span>}))
+</span></span><span style="display:flex;"><span>print(calculator<span style="color:#f92672">.</span>name)
+</span></span><span style="display:flex;"><span>print(calculator<span style="color:#f92672">.</span>description)
+</span></span><span style="display:flex;"><span>print(calculator<span style="color:#f92672">.</span>args)
+</span></span></code></pre></div><p>方式四：将chain作为工具+.as_tool()</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> langchain_core.language_models <span style="color:#f92672">import</span> GenericFakeChatModel
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> langchain_core.output_parsers <span style="color:#f92672">import</span> StrOutputParser
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> langchain_core.prompts <span style="color:#f92672">import</span> ChatPromptTemplate
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>prompt <span style="color:#f92672">=</span> ChatPromptTemplate<span style="color:#f92672">.</span>from_messages(
+</span></span><span style="display:flex;"><span>    [(<span style="color:#e6db74">&#34;human&#34;</span>, <span style="color:#e6db74">&#34;Hello. Please respond in the style of </span><span style="color:#e6db74">{answer_style}</span><span style="color:#e6db74">.&#34;</span>)]
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Placeholder LLM</span>
+</span></span><span style="display:flex;"><span>llm <span style="color:#f92672">=</span> GenericFakeChatModel(messages<span style="color:#f92672">=</span>iter([<span style="color:#e6db74">&#34;hello matey&#34;</span>]))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>chain <span style="color:#f92672">=</span> prompt <span style="color:#f92672">|</span> llm <span style="color:#f92672">|</span> StrOutputParser()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>as_tool <span style="color:#f92672">=</span> chain<span style="color:#f92672">.</span>as_tool(
+</span></span><span style="display:flex;"><span>    name<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Style responder&#34;</span>, description<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Description of when to use tool.&#34;</span>
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>as_tool<span style="color:#f92672">.</span>args
+</span></span></code></pre></div><p>方式五：子类化创建工具，BaseModel+BaseTool</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> typing <span style="color:#f92672">import</span> Optional, Type
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> langchain.pydantic_v1 <span style="color:#f92672">import</span> BaseModel
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> langchain_core.callbacks <span style="color:#f92672">import</span> (
+</span></span><span style="display:flex;"><span>    AsyncCallbackManagerForToolRun,
+</span></span><span style="display:flex;"><span>    CallbackManagerForToolRun,
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> langchain_core.tools <span style="color:#f92672">import</span> BaseTool
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">CalculatorInput</span>(BaseModel):
+</span></span><span style="display:flex;"><span>    a: int <span style="color:#f92672">=</span> Field(description<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;first number&#34;</span>)
+</span></span><span style="display:flex;"><span>    b: int <span style="color:#f92672">=</span> Field(description<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;second number&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">CustomCalculatorTool</span>(BaseTool):
+</span></span><span style="display:flex;"><span>    name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Calculator&#34;</span>
+</span></span><span style="display:flex;"><span>    description <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;useful for when you need to answer questions about math&#34;</span>
+</span></span><span style="display:flex;"><span>    args_schema: Type[BaseModel] <span style="color:#f92672">=</span> CalculatorInput
+</span></span><span style="display:flex;"><span>    return_direct: bool <span style="color:#f92672">=</span> <span style="color:#66d9ef">True</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">_run</span>(
+</span></span><span style="display:flex;"><span>        self, a: int, b: int, run_manager: Optional[CallbackManagerForToolRun] <span style="color:#f92672">=</span> <span style="color:#66d9ef">None</span>
+</span></span><span style="display:flex;"><span>    ) <span style="color:#f92672">-&gt;</span> str:
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;&#34;&#34;Use the tool.&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> a <span style="color:#f92672">*</span> b
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">async</span> <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">_arun</span>(
+</span></span><span style="display:flex;"><span>        self,
+</span></span><span style="display:flex;"><span>        a: int,
+</span></span><span style="display:flex;"><span>        b: int,
+</span></span><span style="display:flex;"><span>        run_manager: Optional[AsyncCallbackManagerForToolRun] <span style="color:#f92672">=</span> <span style="color:#66d9ef">None</span>,
+</span></span><span style="display:flex;"><span>    ) <span style="color:#f92672">-&gt;</span> str:
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;&#34;&#34;Use the tool asynchronously.&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># If the calculation is cheap, you can just delegate to the sync implementation</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># as shown below.</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># If the sync calculation is expensive, you should delete the entire _arun method.</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># LangChain will automatically provide a better implementation that will</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># kick off the task in a thread to make sure it doesn&#39;t block other async code.</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> self<span style="color:#f92672">.</span>_run(a, b, run_manager<span style="color:#f92672">=</span>run_manager<span style="color:#f92672">.</span>get_sync())
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>multiply <span style="color:#f92672">=</span> CustomCalculatorTool()
+</span></span><span style="display:flex;"><span>print(multiply<span style="color:#f92672">.</span>name)
+</span></span><span style="display:flex;"><span>print(multiply<span style="color:#f92672">.</span>description)
+</span></span><span style="display:flex;"><span>print(multiply<span style="color:#f92672">.</span>args)
+</span></span><span style="display:flex;"><span>print(multiply<span style="color:#f92672">.</span>return_direct)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>print(multiply<span style="color:#f92672">.</span>invoke({<span style="color:#e6db74">&#34;a&#34;</span>: <span style="color:#ae81ff">2</span>, <span style="color:#e6db74">&#34;b&#34;</span>: <span style="color:#ae81ff">3</span>}))
+</span></span><span style="display:flex;"><span>print(<span style="color:#66d9ef">await</span> multiply<span style="color:#f92672">.</span>ainvoke({<span style="color:#e6db74">&#34;a&#34;</span>: <span style="color:#ae81ff">2</span>, <span style="color:#e6db74">&#34;b&#34;</span>: <span style="color:#ae81ff">3</span>}))
+</span></span></code></pre></div><p><strong>2.在chatLLM执行tool（function calling）</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># 使用该.bind_tools()方法来处理转换 Multiply为模型的正确格式，然后绑定它（即，每次调用模型时传递它）</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> langchain_core.tools <span style="color:#f92672">import</span> tool
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 简单的定义两个tool</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@tool</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">add</span>(a: int, b: int) <span style="color:#f92672">-&gt;</span> int:
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;&#34;&#34;Adds a and b.&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> a <span style="color:#f92672">+</span> b
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@tool</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">multiply</span>(a: int, b: int) <span style="color:#f92672">-&gt;</span> int:
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;&#34;&#34;Multiplies a and b.&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> a <span style="color:#f92672">*</span> b
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>tools <span style="color:#f92672">=</span> [add, multiply]
+</span></span><span style="display:flex;"><span>llm_with_tools <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>bind_tools(tools)
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> langchain_core.messages <span style="color:#f92672">import</span> AIMessage, HumanMessage, SystemMessage, ToolMessage
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 对于这种prompt的设计，不适合连续对话</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">llm_tool_calling</span>(query):
+</span></span><span style="display:flex;"><span>    prompt <span style="color:#f92672">=</span> (
+</span></span><span style="display:flex;"><span>        SystemMessage(content<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;You are a nice Mathematician.&#34;</span>) <span style="color:#f92672">+</span>
+</span></span><span style="display:flex;"><span>        HumanMessage(content<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Can you help me with some math?&#34;</span>) <span style="color:#f92672">+</span>
+</span></span><span style="display:flex;"><span>        AIMessage(content<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Sure, tell me your question.&#34;</span>) <span style="color:#f92672">+</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{user_input}</span><span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>    )
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    chain <span style="color:#f92672">=</span> prompt <span style="color:#f92672">|</span> llm_with_tools
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    ai_msg <span style="color:#f92672">=</span> chain<span style="color:#f92672">.</span>invoke({<span style="color:#e6db74">&#34;user_input&#34;</span>: query})
+</span></span><span style="display:flex;"><span>    prompt<span style="color:#f92672">.</span>append(ai_msg)
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">#prompt.format_messages(user_input=query)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> ai_msg<span style="color:#f92672">.</span>content <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;&#34;</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;&#34;&#34;Simple sequential tool calling helper.&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>        tool_map <span style="color:#f92672">=</span> {tool<span style="color:#f92672">.</span>name: tool <span style="color:#66d9ef">for</span> tool <span style="color:#f92672">in</span> tools}
+</span></span><span style="display:flex;"><span>        tool_calls <span style="color:#f92672">=</span> ai_msg<span style="color:#f92672">.</span>tool_calls<span style="color:#f92672">.</span>copy()  <span style="color:#75715e"># 返回一个字典列表</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> tool_call <span style="color:#f92672">in</span> tool_calls:
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e"># 对@tool函数执行.invoke(tool_call)返回的是ToolMessage对象,执行tool_call[&#34;args&#34;]返回函数结果</span>
+</span></span><span style="display:flex;"><span>            tool_msg <span style="color:#f92672">=</span> tool_map[tool_call[<span style="color:#e6db74">&#34;name&#34;</span>]]<span style="color:#f92672">.</span>invoke(tool_call)
+</span></span><span style="display:flex;"><span>            prompt<span style="color:#f92672">.</span>append(tool_msg)
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        result <span style="color:#f92672">=</span> chain<span style="color:#f92672">.</span>invoke({<span style="color:#e6db74">&#34;user_input&#34;</span>: query})<span style="color:#f92672">.</span>content
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">else</span>:
+</span></span><span style="display:flex;"><span>        result <span style="color:#f92672">=</span> ai_msg<span style="color:#f92672">.</span>content
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> result
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 绑定tools的LLM会自行判断是否调用tool，以及调用哪几个几个tool。所以在这之后可以加一个判断时候要执行tool</span>
+</span></span><span style="display:flex;"><span>query <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;What is 3 * 12?&#34;</span>
+</span></span><span style="display:flex;"><span>query <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;GPT是什么?&#34;</span>
+</span></span><span style="display:flex;"><span>query <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;What is 3 * 12? Also, what is 11 + 49?&#34;</span>
+</span></span><span style="display:flex;"><span>print(llm_tool_calling(query))
+</span></span></code></pre></div><p><strong>3.使用内置工具和工具包</strong></p>
+<p>各工具包的使用文档：https://python.langchain.com/v0.2/docs/integrations/tools/</p>
+<p>下面以谷歌搜索为例： 首先，您需要设置正确的 API 密钥和环境变量。要进行设置，请在 Google Cloud 凭据控制台 ( <a href="https://console.cloud.google.com/apis/credentials">https://console.cloud.google.com/apis/credentials</a> ) 中创建 GOOGLE_API_KEY，并使用可编程搜索引擎 ( <a href="https://programmablesearchengine.google.com/controlpanel/create">https://programmablesearchengine.google.com/controlpanel/create</a> ) 创建 GOOGLE_CSE_ID。接下来，最好按照此处（https://stackoverflow.com/questions/37083058/programmatically-searching-google-in-python-using-custom-search）的说明进行操作。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">!</span>pip install google<span style="color:#f92672">-</span>api<span style="color:#f92672">-</span>python<span style="color:#f92672">-</span>client
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># 检查是否可以调用Google API</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> googleapiclient.discovery <span style="color:#f92672">import</span> build
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>my_api_key <span style="color:#f92672">=</span> os<span style="color:#f92672">.</span>getenv(<span style="color:#e6db74">&#34;GOOGLE_API_KEY&#34;</span>)
+</span></span><span style="display:flex;"><span>my_cse_id <span style="color:#f92672">=</span> os<span style="color:#f92672">.</span>getenv(<span style="color:#e6db74">&#34;GOOGLE_API_KEY&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">google_search</span>(search_term, api_key, cse_id, <span style="color:#f92672">**</span>kwargs):
+</span></span><span style="display:flex;"><span>    service <span style="color:#f92672">=</span> build(<span style="color:#e6db74">&#34;customsearch&#34;</span>, <span style="color:#e6db74">&#34;v1&#34;</span>, developerKey<span style="color:#f92672">=</span>api_key)
+</span></span><span style="display:flex;"><span>    res <span style="color:#f92672">=</span> service<span style="color:#f92672">.</span>cse()<span style="color:#f92672">.</span>list(q<span style="color:#f92672">=</span>search_term, cx<span style="color:#f92672">=</span>cse_id, <span style="color:#f92672">**</span>kwargs)<span style="color:#f92672">.</span>execute()
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> res[<span style="color:#e6db74">&#39;items&#39;</span>]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>results <span style="color:#f92672">=</span> google_search(<span style="color:#e6db74">&#39;&#34;god is a woman&#34; &#34;thank you next&#34; &#34;7 rings&#34;&#39;</span>, my_api_key, my_cse_id, num<span style="color:#f92672">=</span><span style="color:#ae81ff">10</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> result <span style="color:#f92672">in</span> results:
+</span></span><span style="display:flex;"><span>    print(result)
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">!</span>pip install <span style="color:#f92672">-</span>U langchain<span style="color:#f92672">-</span>google<span style="color:#f92672">-</span>community
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> os
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>os<span style="color:#f92672">.</span>environ[<span style="color:#e6db74">&#34;GOOGLE_CSE_ID&#34;</span>] <span style="color:#f92672">=</span> os<span style="color:#f92672">.</span>getenv(<span style="color:#e6db74">&#34;GOOGLE_CSE_ID&#34;</span>)
+</span></span><span style="display:flex;"><span>os<span style="color:#f92672">.</span>environ[<span style="color:#e6db74">&#34;GOOGLE_API_KEY&#34;</span>] <span style="color:#f92672">=</span> os<span style="color:#f92672">.</span>getenv(<span style="color:#e6db74">&#34;GOOGLE_API_KEY&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> langchain_google_community <span style="color:#f92672">import</span> GoogleSearchAPIWrapper
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> langchain_core.tools <span style="color:#f92672">import</span> Tool
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>search <span style="color:#f92672">=</span> GoogleSearchAPIWrapper()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>tool <span style="color:#f92672">=</span> Tool(
+</span></span><span style="display:flex;"><span>    name<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;google_search&#34;</span>,
+</span></span><span style="display:flex;"><span>    description<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Search Google for recent results.&#34;</span>,
+</span></span><span style="display:flex;"><span>    func<span style="color:#f92672">=</span>search<span style="color:#f92672">.</span>run,
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>tool<span style="color:#f92672">.</span>run(<span style="color:#e6db74">&#34;Obama&#39;s first name?&#34;</span>)
+</span></span></code></pre></div><h2 id="rag">RAG<a hidden class="anchor" aria-hidden="true" href="#rag">#</a></h2>
+<p><strong>1.SemanticSimilarityExampleSelector</strong>:使用嵌入模型来计算输入与少量样本示例之间的相似性，并使用向量存储来执行最近邻搜索.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> langchain_chroma <span style="color:#f92672">import</span> Chroma
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> langchain_core.example_selectors <span style="color:#f92672">import</span> SemanticSimilarityExampleSelector
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> langchain_openai <span style="color:#f92672">import</span> OpenAIEmbeddings
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>example_selector <span style="color:#f92672">=</span> SemanticSimilarityExampleSelector<span style="color:#f92672">.</span>from_examples(
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># This is the list of examples available to select from.</span>
+</span></span><span style="display:flex;"><span>    examples,
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># This is the embedding class used to produce embeddings which are used to measure semantic similarity.</span>
+</span></span><span style="display:flex;"><span>    OpenAIEmbeddings(),
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># This is the VectorStore class that is used to store the embeddings and do a similarity search over.</span>
+</span></span><span style="display:flex;"><span>    Chroma,
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># This is the number of examples to produce.</span>
+</span></span><span style="display:flex;"><span>    k<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>,
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Select the most similar example to the input.</span>
+</span></span><span style="display:flex;"><span>question <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Who was the father of Mary Ball Washington?&#34;</span>
+</span></span><span style="display:flex;"><span>selected_examples <span style="color:#f92672">=</span> example_selector<span style="color:#f92672">.</span>select_examples({<span style="color:#e6db74">&#34;question&#34;</span>: question})
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;Examples most similar to the input: </span><span style="color:#e6db74">{</span>question<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> example <span style="color:#f92672">in</span> selected_examples:
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> k, v <span style="color:#f92672">in</span> example<span style="color:#f92672">.</span>items():
+</span></span><span style="display:flex;"><span>        print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{</span>k<span style="color:#e6db74">}</span><span style="color:#e6db74">: </span><span style="color:#e6db74">{</span>v<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>)
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>prompt <span style="color:#f92672">=</span> FewShotPromptTemplate(
+</span></span><span style="display:flex;"><span>    example_selector<span style="color:#f92672">=</span>example_selector, 
+</span></span><span style="display:flex;"><span>    example_prompt<span style="color:#f92672">=</span>example_prompt,
+</span></span><span style="display:flex;"><span>    suffix<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Question: </span><span style="color:#e6db74">{input}</span><span style="color:#e6db74">&#34;</span>,
+</span></span><span style="display:flex;"><span>    input_variables<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#34;input&#34;</span>],
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>print(
+</span></span><span style="display:flex;"><span>    prompt<span style="color:#f92672">.</span>invoke({<span style="color:#e6db74">&#34;input&#34;</span>: <span style="color:#e6db74">&#34;Who was the father of Mary Ball Washington?&#34;</span>})<span style="color:#f92672">.</span>to_string()
+</span></span><span style="display:flex;"><span>)
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> langchain_chroma <span style="color:#f92672">import</span> Chroma
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> langchain_core.example_selectors <span style="color:#f92672">import</span> SemanticSimilarityExampleSelector
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> langchain_openai <span style="color:#f92672">import</span> OpenAIEmbeddings
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>examples <span style="color:#f92672">=</span> [
+</span></span><span style="display:flex;"><span>    {<span style="color:#e6db74">&#34;input&#34;</span>: <span style="color:#e6db74">&#34;2 🦜 2&#34;</span>, <span style="color:#e6db74">&#34;output&#34;</span>: <span style="color:#e6db74">&#34;4&#34;</span>},
+</span></span><span style="display:flex;"><span>    {<span style="color:#e6db74">&#34;input&#34;</span>: <span style="color:#e6db74">&#34;2 🦜 3&#34;</span>, <span style="color:#e6db74">&#34;output&#34;</span>: <span style="color:#e6db74">&#34;5&#34;</span>},
+</span></span><span style="display:flex;"><span>    {<span style="color:#e6db74">&#34;input&#34;</span>: <span style="color:#e6db74">&#34;2 🦜 4&#34;</span>, <span style="color:#e6db74">&#34;output&#34;</span>: <span style="color:#e6db74">&#34;6&#34;</span>},
+</span></span><span style="display:flex;"><span>    {<span style="color:#e6db74">&#34;input&#34;</span>: <span style="color:#e6db74">&#34;What did the cow say to the moon?&#34;</span>, <span style="color:#e6db74">&#34;output&#34;</span>: <span style="color:#e6db74">&#34;nothing at all&#34;</span>},
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;input&#34;</span>: <span style="color:#e6db74">&#34;Write me a poem about the moon&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;output&#34;</span>: <span style="color:#e6db74">&#34;One for the moon, and one for me, who are we to talk about the moon?&#34;</span>,
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>to_vectorize <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#34; &#34;</span><span style="color:#f92672">.</span>join(example<span style="color:#f92672">.</span>values()) <span style="color:#66d9ef">for</span> example <span style="color:#f92672">in</span> examples]
+</span></span><span style="display:flex;"><span>embeddings <span style="color:#f92672">=</span> OpenAIEmbeddings()
+</span></span><span style="display:flex;"><span>vectorstore <span style="color:#f92672">=</span> Chroma<span style="color:#f92672">.</span>from_texts(to_vectorize, embeddings, metadatas<span style="color:#f92672">=</span>examples)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>example_selector <span style="color:#f92672">=</span> SemanticSimilarityExampleSelector(
+</span></span><span style="display:flex;"><span>    vectorstore<span style="color:#f92672">=</span>vectorstore,
+</span></span><span style="display:flex;"><span>    k<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>,
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># The prompt template will load examples by passing the input do the `select_examples` method</span>
+</span></span><span style="display:flex;"><span>example_selector<span style="color:#f92672">.</span>select_examples({<span style="color:#e6db74">&#34;input&#34;</span>: <span style="color:#e6db74">&#34;horse&#34;</span>})
+</span></span></code></pre></div><p>未完待续！！！</p>
+<p><strong>2.LlamaIndex</strong></p>
+<p>未完待续！！！</p>
+<h1 id="其他功能">其他功能<a hidden class="anchor" aria-hidden="true" href="#其他功能">#</a></h1>
+<p>未完待续！！！</p>
+
+
+        </div>
+        <div class="post-reward">
+            <div style="padding: 0 0 0 0; margin: 0 0 0 0; width: 100%; font-size:16px; text-align: center;">
+                <div id="QR" style="opacity: 0;">
+                    <div id="wechat" style="display: inline-block">
+                        <a class="fancybox" rel="group">
+                            <img id="wechat_qr" src="https://Aliga123.github.io/img/wechat_pay.jpg" alt="wechat_pay"></a>
+                        <p>微信</p>
+                    </div>
+                    <div id="alipay" style="display: inline-block">
+                        <a class="fancybox" rel="group">
+                            <img id="alipay_qr" src="https://Aliga123.github.io/img/alipay.jpg" alt="alipay"></a>
+                        <p>支付宝</p>
+                    </div>
+                </div>
+                <button id="rewardButton"
+                        onclick="
+                    var qr = document.getElementById('QR');
+                    if (qr.style.opacity === '0') {
+                        qr.style.opacity='1';
+                    } else {
+                        qr.style.opacity='0'
+                    }"
+                >
+                    <span>🧧 鼓励</span>
+                </button>
+            </div>
+        </div>
+
+        <footer class="post-footer">
+            
+<nav class="paginav">
+  <a class="prev" href="https://Aliga123.github.io/posts/ai-llm/function-calling/">
+    <span class="title">« 上一页</span>
+    <br>
+    <span>Function Calling</span>
+  </a>
+  <a class="next" href="https://Aliga123.github.io/posts/ai-llm/langsmith/">
+    <span class="title">下一页 »</span>
+    <br>
+    <span>LangSmith</span>
+  </a>
+</nav>
+
+        </footer>
+    </div>
+
+<style>
+    .comments_details summary::marker {
+        font-size: 20px;
+        content: '👉展开评论';
+        color: var(--content);
+    }
+    .comments_details[open] summary::marker{
+        font-size: 20px;
+        content: '👇关闭评论';
+        color: var(--content);
+    }
+</style>
+
+
+<div>
+    <details class="comments_details">
+        <summary style="cursor: pointer; margin: 50px 0 20px 0;width: 130px;">
+            <span style="font-size: 20px;color: var(--content);">...</span>
+        </summary>
+        <div id="tcomment"></div>
+    </details>
+    <script src="https://cdn.staticfile.org/twikoo/1.5.8/twikoo.all.min.js">
+    </script>
+    <script>
+        twikoo.init({
+            envId:  null ,
+        el: "#tcomment",
+            lang: 'zh-CN',
+            region:  null ,
+        path: window.TWIKOO_MAGIC_PATH||window.location.pathname,
+        })
+    </script>
+</div>
+</article>
+</main>
+
+<footer class="footer">
+    <span>
+        Copyright
+        &copy;
+        2020-2024
+        <a href="https://Aliga123.github.io/" style="color:#939393;">aliga&#39;s Blog</a>
+        All Rights Reserved
+    </span>
+    <a href="https://beian.miit.gov.cn/" target="_blank" style="color:#939393;">填写自己的备案号</a>&nbsp;
+    <span>
+        <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=null"
+           style="display:inline-block;text-decoration:none;height:20px;color:#939393;">
+            <img src="%e5%a1%ab%e8%87%aa%e5%b7%b1%e7%9a%84%e5%85%ac%e5%ae%89%e5%9b%be%e6%a0%87%e9%93%be%e6%8e%a5" style="float:left;margin: 0px 5px 0px 0px;"/>
+            填自己的公网安备
+        </a>
+    </span>
+    <span id="busuanzi_container">
+        <span class="fa fa-user"></span> <span id="busuanzi_value_site_uv"></span>
+        <span class="fa fa-eye"></span> <span id="busuanzi_value_site_pv"></span>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <span class="topInner">
+        <svg class="topSvg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+            <path d="M12 6H0l6-6z"/>
+        </svg>
+        <span id="read_progress"></span>
+    </span>
+</a>
+
+<script>
+    document.addEventListener('scroll', function (e) {
+        const readProgress = document.getElementById("read_progress");
+        const scrollHeight = document.documentElement.scrollHeight;
+        const clientHeight = document.documentElement.clientHeight;
+        const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+        readProgress.innerText = ((scrollTop / (scrollHeight - clientHeight)).toFixed(2) * 100).toFixed(0);
+    })
+</script>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+</script>
+<script>
+    let mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        (function() {
+            document.cookie = "change-themes" + "="+ escape ("false");
+        })()
+
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    });
+</script>
+
+<script>
+    document.body.addEventListener('copy', function (e) {
+        if (window.getSelection().toString() && window.getSelection().toString().length > 50) {
+            let clipboardData = e.clipboardData || window.clipboardData;
+            if (clipboardData) {
+                e.preventDefault();
+                let htmlData = window.getSelection().toString() +
+                    '\r\n\n————————————————\r\n' +
+                    '版权声明：本文为「'+"aliga's Blog"+'」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。' +
+                '\r\n原文链接：' + location.href;
+                let textData = window.getSelection().toString() +
+                    '\r\n\n————————————————\r\n' +
+                    '版权声明：本文为「'+"aliga's Blog"+'」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。' +
+                '\r\n原文链接：' + location.href;
+                clipboardData.setData('text/html', htmlData);
+                clipboardData.setData('text/plain', textData);
+            }
+        }
+    });
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerText = '复制';
+
+        function copyingDone() {
+            copybutton.innerText = '已复制！';
+            setTimeout(() => {
+                copybutton.innerText = '复制';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                let text = codeblock.textContent +
+                    '\r\n————————————————\r\n' +
+                    '版权声明：本文为「'+"aliga's Blog"+'」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。' +
+                '\r\n原文链接：' + location.href;
+                navigator.clipboard.writeText(text);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) {}
+            selection.removeRange(range);
+        });
+
+        let language = codeblock.className.replaceAll("language-", "")
+        let macTool = document.createElement("div")
+        let macTool1 = document.createElement("div")
+        let macTool2 = document.createElement("div")
+        let macTool3 = document.createElement("div")
+        let languageType = document.createElement("div")
+        languageType.innerText = language
+        macTool.setAttribute('class', 'mac-tool')
+        macTool1.setAttribute('class', 'mac bb1')
+        macTool2.setAttribute('class', 'mac bb2')
+        macTool3.setAttribute('class', 'mac bb3')
+        languageType.setAttribute('class', 'language-type')
+        macTool.appendChild(macTool1)
+        macTool.appendChild(macTool2)
+        macTool.appendChild(macTool3)
+        macTool.appendChild(languageType)
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+            container.appendChild(macTool)
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+            container.appendChild(macTool)
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+            container.appendChild(macTool)
+        }
+    });
+</script>
+</body>
+
+</html>

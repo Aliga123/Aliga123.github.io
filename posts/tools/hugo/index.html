@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+<html lang="zh" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Hugo | aliga&#39;s Blog</title>
+<meta name="keywords" content="">
+<meta name="description" content="开发个人blog网站的工具">
+<meta name="author" content="aliga">
+<link rel="canonical" href="https://Aliga123.github.io/posts/tools/hugo/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.js" onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://Aliga123.github.io/img/Q.gif">
+<link rel="icon" type="image/png" sizes="16x16" href="https://Aliga123.github.io/img/Q.gif">
+<link rel="icon" type="image/png" sizes="32x32" href="https://Aliga123.github.io/img/Q.gif">
+<link rel="apple-touch-icon" href="https://Aliga123.github.io/img/Q.gif">
+<link rel="mask-icon" href="https://Aliga123.github.io/img/Q.gif">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="zh" href="https://Aliga123.github.io/posts/tools/hugo/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+<script defer src="https://unpkg.com/mermaid@8.8.1/dist/mermaid.min.js"></script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+<script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.3/dist/jquery.min.js"></script>
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = ""; 
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+  
+
+<meta property="og:title" content="Hugo" />
+<meta property="og:description" content="开发个人blog网站的工具" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://Aliga123.github.io/posts/tools/hugo/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2024-07-27T21:27:55+08:00" />
+<meta property="article:modified_time" content="2024-07-27T21:27:55+08:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Hugo"/>
+<meta name="twitter:description" content="开发个人blog网站的工具"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+
+        {
+          "@type": "ListItem",
+          "position":  1 ,
+          "name": "📚文章",
+          "item": "https://Aliga123.github.io/posts/"
+        },
+
+        {
+          "@type": "ListItem",
+          "position":  2 ,
+          "name": "Tools",
+          "item": "https://Aliga123.github.io/posts/tools/"
+        }, 
+    {
+      "@type": "ListItem",
+      "position":  3 ,
+      "name": "Hugo",
+      "item": "https://Aliga123.github.io/posts/tools/hugo/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Hugo",
+  "name": "Hugo",
+  "description": "开发个人blog网站的工具",
+  "keywords": [
+    ""
+  ],
+  "articleBody": "简介 本篇blog主要内容：零基础对大佬搭建好的hugo项目进行使用和部署，并修改成自己的hugo和搭配Typora编写blog。\n1.安装git、hugo git安装不多介绍，下载网址：https://git-scm.com/\nhugo安装步骤如下：\n（1）在releases里面需要和自己电脑匹配的版本。（例如我的是hugo_0.128.2_windows-amd64.zip） （2）创建一个用于存放hugo的文件夹，并且在该文件里面创建bin、Sites两个文件夹。 （3）将下载好的hugo解压到bin文件夹里面（解压后就一个hugo.exe文件）。 （4）将hugo配置到环境变量里面。注意需要将用户变量和系统变量的paht都配置一下（也就是在它们两个的path里面都添加…\\bin地址）。 （5）在命令行或bash输入hugo version检查时候安装成功。 2.拉取项目 （1）打开命令行或bash（个人喜欢用bash，后面只提到bash），进入到刚刚创建的Sites文件目录下。 （2）使用git命令拉取Sulv大佬的项目：git clone https://github.com/xyming108/sulv-hugo-papermod.git 。项目会保存在Sites目录下。 （3）进入到项目目录：cd sulv-hugo-papermod （4）拉取hugo-PaperMod主题：git submodule update --init（子模块的git地址以及存在在.git文件里面，所有直接运行这个命令） （5）cd ..退回到项目目录下，再本地启动hugo服务：hugo server -D 或 hugo server -t hugo-PaperMod --buildDrafts （6）登录http://localhost:1313/查看是否本地启动成功 3.部署到GitHub云端 （1）在自己的GitHub上创建一个空仓库。仓库名需要注意前面一段要和GitHub账号名字相同，后面都是固定.github.io。例如我的GitHub账号叫Aliaga123，创建的仓库名Aliga123.github.io\n（2）在目录sulv-hugo-papermod下运行命令：hugo --theme=hugo-PaperMod --baseURL=\"https://Aliga123.github.io\" --buildDrafts。注意，Aliga123.github.io是我的仓库名，换成你的。\n（3）cd public进行到public目录，提交到自己的仓库：\ngit init git remote add origin https://github.com/Aliga123/Aliga123.github.io.git 或者 （git remote add origin git@github.com:Aliga123/Aliga123.github.io.git，按理说这个应该也可行，但是我这个测试了不行） git add . git commit -m \"add my notes\" git push -u origin master 或者 git push（这个测试出现权限拒绝访问） 上传成功后，需要等待一段时间就可以在在网络访问：https://aliga123.github.io/。如果等待一段时间还是访问不了，请看后面的操作。\n（4）Check the changes have been pushed to GitHub\n（5）Step config GitHub action\n4.将Hugo修改成自己的内容，创建md文件 主页页面设置都在config.yml里面，修改里面的设置换成自己的。注意，修改或添加新的文章分类后，要保证文件夹名和yml里面的路径一致。\n可以直接在content/posts里面仿照给的示例编写或者修改自己md文件文件。创建新的分类文件名要小写。\n修改完成自己的后，记得删掉原public文件。因为重复提交不会删除原来的，而是将修改认定为新的添加进去。\n开始创建md文件编写blog：\n（1）直接使用typora在对应位置创建md文件，复制其他md文件的前缀后修改：\ntitle: \"Hugo\" date: 2024-07-27T21:27:55+08:00 lastmod: 2024-07-27T21:27:55+08:00 author: [\"aliga\"] keywords: - categories: # 没有分类界面可以不填写 - tags: # 标签 - description: \"开发个人blog网站的工具\" weight: slug: \"\" draft: false # 是否为草稿 comments: true # 本页面是否显示评论 reward: true # 打赏 mermaid: true #是否开启mermaid showToc: true # 显示目录 TocOpen: true # 自动展开目录 hidemeta: false # 是否隐藏文章的元信息，如发布日期、作者等 disableShare: true # 底部不显示分享栏 showbreadcrumbs: true #顶部显示路径 cover: image: \"\" #图片路径例如：posts/tech/123/123.png zoom: # 图片大小，例如填写 50% 表示原图像的一半大小 caption: \"\" #图片底部描述 alt: \"\" relative: false. （2）命令行或bash在项目目录下sulv-hugo-papermod打开后：hugo new posts/tools/hugo.md\n5.后续编写、修改blog的提交操作 （1）更新public的html文件。在在目录sulv-hugo-papermod下运行命令：\nhugo --theme=hugo-PaperMod --baseURL=\"https://Aliga123.github.io\" --buildDrafts （2）提交（不知为什么有时候提交不了，我不知道怎么弄，直接删掉仓库重新步骤3。\ncd public git add . git commit -m \"add my notes\" git push -u origin master 出现如下的网络问题，多试几次就好了\nfatal: unable to access 'https://github.com/Aliga123/Aliga123.github.io.git/': OpenSSL SSL_read: SSL_ERROR_SYSCALL, errno 0 6.结合Typora将图片部署云端 一手参考资料：https://github.com/gohugoio/hugo/issues/1240#issuecomment-753077529\n（1）在偏好设置里面，设置Typora图片保存路径。 （2）假如我们的的hugo.md文件都写入tool分类下。要想需要能在云端显示，可以按照如下图这样设计，创建一个名为hugo文件夹，原hugo.md内容写道index.md文件里面，由于设置了骗保，图片会和index.md保存在同一目录下的img文件夹里面。 ",
+  "wordCount" : "2021",
+  "inLanguage": "zh",
+  "datePublished": "2024-07-27T21:27:55+08:00",
+  "dateModified": "2024-07-27T21:27:55+08:00",
+  "author":[{
+    "@type": "Person",
+    "name": "aliga"
+  }],
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://Aliga123.github.io/posts/tools/hugo/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "aliga's Blog",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://Aliga123.github.io/img/Q.gif"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    (function () {
+        let  arr,reg = new RegExp("(^| )"+"change-themes"+"=([^;]*)(;|$)");
+        if(arr = document.cookie.match(reg)) {
+        } else {
+            if (new Date().getHours() >= 19 || new Date().getHours() < 6) {
+                document.body.classList.add('dark');
+                localStorage.setItem("pref-theme", 'dark');
+            } else {
+                document.body.classList.remove('dark');
+                localStorage.setItem("pref-theme", 'light');
+            }
+        }
+    })()
+
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://Aliga123.github.io/" accesskey="h" title="Aliga&#39;s Blog (Alt + H)">
+            <img src="https://Aliga123.github.io/img/Q.gif" alt="logo" aria-label="logo"
+                 height="35">Aliga&#39;s Blog</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                         stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                         stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+                <ul class="lang-switch"><li>|</li>
+                </ul>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://Aliga123.github.io/search" title="🔍 搜索 (Alt &#43; /)" accesskey=/>
+                <span>🔍 搜索</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Aliga123.github.io/" title="🏠 主页">
+                <span>🏠 主页</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Aliga123.github.io/posts" title="📚 文章">
+                <span>📚 文章</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Aliga123.github.io/tags" title="🧩 标签">
+                <span>🧩 标签</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Aliga123.github.io/archives/" title="⏱️ 时间轴">
+                <span>⏱️ 时间轴</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Aliga123.github.io/about" title="🙋🏻‍♂️ 关于">
+                <span>🙋🏻‍♂️ 关于</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Aliga123.github.io/links" title="🤝 友链">
+                <span>🤝 友链</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main page">
+<style>
+    i[id*="post_meta_style"] {
+        display: flex;
+        align-items: center;
+        margin: 0 0 10px 0;
+    }
+</style>
+
+<article class="post-single">
+    <div id="single-content">
+        <header class="post-header">
+            <div class="breadcrumbs"><a href="https://Aliga123.github.io/">🏠 主页</a>&nbsp;»&nbsp;<a href="https://Aliga123.github.io/posts/">📚文章</a>&nbsp;»&nbsp;<a href="https://Aliga123.github.io/posts/tools/">Tools</a></div>
+            <h1 class="post-title">
+                Hugo
+            </h1>
+            <div class="post-description">
+                开发个人blog网站的工具
+            </div>
+            <div class="post-meta">
+
+<style>
+    i[id*="post_meta_style"] {
+        display: flex;
+        align-items: center;
+        margin: 0 0 10px 0;
+    }
+
+    .parent-post-meta {
+        display: flex;
+        flex-wrap: wrap;
+        opacity: 0.8;
+    }
+</style>
+
+<span class="parent-post-meta">
+    <span id="post_meta_style_1">
+        <span class="fa fa-calendar-check-o"></span>
+        <span>2024-07-27
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    
+    
+    
+    
+    
+    
+    
+    <span id="post_meta_style_3">
+        <span class="fa fa-file-word-o"></span>
+        <span>2021字
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_4">
+        <span class="fa fa-clock-o"></span>
+        <span>5分钟
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_5">
+        <span class="fa fa-user-o"></span>
+        <span>aliga
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_6">
+        <span class="fa fa-tags" style="opacity: 0.8"></span>
+        <span>
+            <span class="post-tags-meta">
+            </span>
+        </span>
+    </span>
+</span>
+<span style="opacity: 0.8;">
+                    <span id="post_meta_style_7">
+                        &nbsp;&nbsp;
+                        <span class="fa fa-eye" ></span>
+                        <span>
+                            <span id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv"></span></span>
+                            &nbsp;&nbsp;
+                        </span>
+                    </span>
+                    <span id="post_meta_style_8">
+                        <span class="fa fa-commenting-o"></span>
+                        <span>
+                            <script src="https://cdn.staticfile.org/twikoo/1.5.8/twikoo.all.min.js"></script>
+                            <script>
+                                let url = document.documentURI
+                                
+                                let dnsUrl = "https://Aliga123.github.io/"
+                                let urlSplit = url.split(dnsUrl)
+                                let finalUrl = urlSplit[1]
+                                if (finalUrl[0] !== '/') {
+                                    finalUrl = '/'+finalUrl
+                                }
+                                twikoo.getCommentsCount({
+                                    envId:  null , 
+                                region:  null , 
+                                urls: [ 
+                                    
+                                    finalUrl,
+                                ],
+                                    includeReply: false 
+                                }).then(function (res) {
+                                    let count = res[0].count
+                                    const obj = document.getElementById("comment_count");
+                                    obj.innerText = count
+                                    
+                                    
+                                    
+                                }).catch(function (err) {
+                                    
+                                    console.error(err);
+                                });
+                            </script>
+                            <span id="comment_count"></span>
+                        </span>
+                    </span>
+                </span>
+
+</div>
+        </header> <aside id="toc-container" class="toc-container wide">
+    <div class="toc">
+        <details  open>
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">目录</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#%e7%ae%80%e4%bb%8b" aria-label="简介">简介</a></li>
+                <li>
+                    <a href="#1%e5%ae%89%e8%a3%85githugo" aria-label="1.安装git、hugo">1.安装git、hugo</a></li>
+                <li>
+                    <a href="#2%e6%8b%89%e5%8f%96%e9%a1%b9%e7%9b%ae" aria-label="2.拉取项目">2.拉取项目</a></li>
+                <li>
+                    <a href="#3%e9%83%a8%e7%bd%b2%e5%88%b0github%e4%ba%91%e7%ab%af" aria-label="3.部署到GitHub云端">3.部署到GitHub云端</a></li>
+                <li>
+                    <a href="#4%e5%b0%86hugo%e4%bf%ae%e6%94%b9%e6%88%90%e8%87%aa%e5%b7%b1%e7%9a%84%e5%86%85%e5%ae%b9%e5%88%9b%e5%bb%bamd%e6%96%87%e4%bb%b6" aria-label="4.将Hugo修改成自己的内容，创建md文件">4.将Hugo修改成自己的内容，创建md文件</a></li>
+                <li>
+                    <a href="#5%e5%90%8e%e7%bb%ad%e7%bc%96%e5%86%99%e4%bf%ae%e6%94%b9blog%e7%9a%84%e6%8f%90%e4%ba%a4%e6%93%8d%e4%bd%9c" aria-label="5.后续编写、修改blog的提交操作">5.后续编写、修改blog的提交操作</a></li>
+                <li>
+                    <a href="#6%e7%bb%93%e5%90%88typora%e5%b0%86%e5%9b%be%e7%89%87%e9%83%a8%e7%bd%b2%e4%ba%91%e7%ab%af" aria-label="6.结合Typora将图片部署云端">6.结合Typora将图片部署云端</a>
+                </li>
+            </ul>
+        </div>
+        </details>
+    </div>
+</aside>
+<script>
+    let activeElement;
+    let elements;
+    window.addEventListener('DOMContentLoaded', function (event) {
+        checkTocPosition();
+
+        elements = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');
+        
+        activeElement = elements[0];
+        const id = encodeURI(activeElement.getAttribute('id')).toLowerCase();
+        document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+    }, false);
+
+    window.addEventListener('resize', function(event) {
+        checkTocPosition();
+    }, false);
+
+    window.addEventListener('scroll', () => {
+        
+        if (elements) {
+            activeElement = Array.from(elements).find((element) => {
+                if ((getOffsetTop(element) - window.pageYOffset) > 0 &&
+                    (getOffsetTop(element) - window.pageYOffset) < window.innerHeight/2) {
+                    return element;
+                }
+            }) || activeElement
+
+            elements.forEach(element => {
+                const id = encodeURI(element.getAttribute('id')).toLowerCase();
+                if (element === activeElement){
+                    document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+                } else {
+                    document.querySelector(`.inner ul li a[href="#${id}"]`).classList.remove('active');
+                }
+            })
+        }
+    }, false);
+
+    const main = parseInt(getComputedStyle(document.body).getPropertyValue('--article-width'), 10);
+    const toc = parseInt(getComputedStyle(document.body).getPropertyValue('--toc-width'), 10);
+    const gap = parseInt(getComputedStyle(document.body).getPropertyValue('--gap'), 10);
+
+    function checkTocPosition() {
+        const width = document.body.scrollWidth;
+        if (width - main - (toc * 2) - (gap * 4) > 0) {
+            document.getElementById("toc-container").classList.add("wide");
+        } else {
+            document.getElementById("toc-container").classList.remove("wide");
+        }
+    }
+
+    function getOffsetTop(element) {
+        if (!element.getClientRects().length) {
+            return 0;
+        }
+        let rect = element.getBoundingClientRect();
+        let win = element.ownerDocument.defaultView;
+        return rect.top + win.pageYOffset;
+    }
+</script>
+        <div class="post-content"><h2 id="简介">简介<a hidden class="anchor" aria-hidden="true" href="#简介">#</a></h2>
+<p>本篇blog主要内容：零基础对大佬搭建好的hugo项目进行使用和部署，并修改成自己的hugo和搭配Typora编写blog。</p>
+<h2 id="1安装githugo">1.安装git、hugo<a hidden class="anchor" aria-hidden="true" href="#1安装githugo">#</a></h2>
+<ul>
+<li>
+<p>git安装不多介绍，下载网址：https://git-scm.com/</p>
+</li>
+<li>
+<p>hugo安装步骤如下：</p>
+<ul>
+<li>（1）在<a href="https://github.com/gohugoio/hugo/releases">releases</a>里面需要和自己电脑匹配的版本。（例如我的是<a href="https://github.com/gohugoio/hugo/releases/download/v0.128.2/hugo_0.128.2_windows-amd64.zip">hugo_0.128.2_windows-amd64.zip</a>）</li>
+<li>（2）创建一个用于存放hugo的文件夹，并且在该文件里面创建bin、Sites两个文件夹。</li>
+<li>（3）将下载好的hugo解压到bin文件夹里面（解压后就一个hugo.exe文件）。</li>
+<li>（4）将hugo配置到环境变量里面。注意需要将用户变量和系统变量的paht都配置一下（也就是在它们两个的path里面都添加&hellip;\bin地址）。</li>
+<li>（5）在命令行或bash输入<code>hugo version</code>检查时候安装成功。</li>
+</ul>
+</li>
+</ul>
+<h2 id="2拉取项目">2.拉取项目<a hidden class="anchor" aria-hidden="true" href="#2拉取项目">#</a></h2>
+<ul>
+<li>（1）打开命令行或bash（个人喜欢用bash，后面只提到bash），进入到刚刚创建的Sites文件目录下。</li>
+<li>（2）使用git命令拉取<a href="https://github.com/xyming108/sulv-hugo-papermod">Sulv大佬的项目</a>：<code>git clone https://github.com/xyming108/sulv-hugo-papermod.git </code>。项目会保存在Sites目录下。</li>
+<li>（3）进入到项目目录：<code>cd sulv-hugo-papermod</code></li>
+<li>（4）拉取hugo-PaperMod主题：<code>git submodule update --init</code>（子模块的git地址以及存在在.git文件里面，所有直接运行这个命令）</li>
+<li>（5）<code>cd ..</code>退回到项目目录下，再本地启动hugo服务：<code>hugo server -D</code>  或  <code>hugo server -t hugo-PaperMod --buildDrafts</code></li>
+<li>（6）登录http://localhost:1313/查看是否本地启动成功</li>
+</ul>
+<h2 id="3部署到github云端">3.部署到GitHub云端<a hidden class="anchor" aria-hidden="true" href="#3部署到github云端">#</a></h2>
+<ul>
+<li>
+<p>（1）在自己的GitHub上创建一个空仓库。仓库名需要注意前面一段要和GitHub账号名字相同，后面都是固定<code>.github.io</code>。例如我的GitHub账号叫<code>Aliaga123</code>，创建的仓库名<code>Aliga123.github.io</code></p>
+</li>
+<li>
+<p>（2）在目录<code>sulv-hugo-papermod</code>下运行命令：<code>hugo --theme=hugo-PaperMod --baseURL=&quot;https://Aliga123.github.io&quot; --buildDrafts</code>。注意，<code>Aliga123.github.io</code>是我的仓库名，换成你的。</p>
+</li>
+<li>
+<p>（3）<code>cd public</code>进行到public目录，提交到自己的仓库：</p>
+<ul>
+<li>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git init
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>git remote add origin https://github.com/Aliga123/Aliga123.github.io.git  或者  
+</span></span><span style="display:flex;"><span>（git remote add origin git@github.com:Aliga123/Aliga123.github.io.git，按理说这个应该也可行，但是我这个测试了不行）
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>git add .
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>git commit -m <span style="color:#e6db74">&#34;add my notes&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>git push -u origin master 或者 git push（这个测试出现权限拒绝访问）
+</span></span></code></pre></div></li>
+</ul>
+</li>
+<li>
+<p>上传成功后，需要等待一段时间就可以在在网络访问：https://aliga123.github.io/。如果等待一段时间还是访问不了，请看后面的操作。</p>
+</li>
+<li>
+<p>（4）Check the changes have been pushed to GitHub</p>
+</li>
+</ul>
+<p><img loading="lazy" src="img/image-20240729184930612.png" alt="image-20240729184930612"  />
+</p>
+<ul>
+<li>
+<p>（5）Step config GitHub action</p>
+<p><img loading="lazy" src="https://huan11.github.io/posts/blog/set-up-blog/img/image-20240727091959131.png" alt="image-20240727091959131"  />
+</p>
+<p><img loading="lazy" src="https://huan11.github.io/posts/blog/set-up-blog/img/image-20240727092046143.png" alt="image-20240727092046143"  />
+</p>
+<p><img loading="lazy" src="https://huan11.github.io/posts/blog/set-up-blog/img/image-20240727092529489.png" alt="image-20240727092529489"  />
+</p>
+<p><img loading="lazy" src="https://huan11.github.io/posts/blog/set-up-blog/img/image-20240727092736762.png" alt="image-20240727092736762"  />
+</p>
+</li>
+</ul>
+<h2 id="4将hugo修改成自己的内容创建md文件">4.将Hugo修改成自己的内容，创建md文件<a hidden class="anchor" aria-hidden="true" href="#4将hugo修改成自己的内容创建md文件">#</a></h2>
+<ul>
+<li>
+<p>主页页面设置都在config.yml里面，修改里面的设置换成自己的。注意，修改或添加新的文章分类后，要保证文件夹名和yml里面的路径一致。</p>
+</li>
+<li>
+<p>可以直接在content/posts里面仿照给的示例编写或者修改自己md文件文件。创建新的分类文件名要小写。</p>
+</li>
+<li>
+<p>修改完成自己的后，记得删掉原public文件。因为重复提交不会删除原来的，而是将修改认定为新的添加进去。</p>
+</li>
+<li>
+<p>开始创建md文件编写blog：</p>
+<ul>
+<li>
+<p>（1）直接使用typora在对应位置创建md文件，复制其他md文件的前缀后修改：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-md" data-lang="md"><span style="display:flex;"><span>title: &#34;Hugo&#34;
+</span></span><span style="display:flex;"><span>date: 2024-07-27T21:27:55+08:00
+</span></span><span style="display:flex;"><span>lastmod: 2024-07-27T21:27:55+08:00
+</span></span><span style="display:flex;"><span>author: [&#34;aliga&#34;]
+</span></span><span style="display:flex;"><span>keywords: 
+</span></span><span style="display:flex;"><span>- 
+</span></span><span style="display:flex;"><span>categories: # 没有分类界面可以不填写
+</span></span><span style="display:flex;"><span>- 
+</span></span><span style="display:flex;"><span>tags: # 标签
+</span></span><span style="display:flex;"><span>- 
+</span></span><span style="display:flex;"><span>description: &#34;开发个人blog网站的工具&#34;
+</span></span><span style="display:flex;"><span>weight:
+</span></span><span style="display:flex;"><span>slug: &#34;&#34;
+</span></span><span style="display:flex;"><span>draft: false # 是否为草稿
+</span></span><span style="display:flex;"><span>comments: true # 本页面是否显示评论
+</span></span><span style="display:flex;"><span>reward: true # 打赏
+</span></span><span style="display:flex;"><span>mermaid: true #是否开启mermaid
+</span></span><span style="display:flex;"><span>showToc: true # 显示目录
+</span></span><span style="display:flex;"><span>TocOpen: true # 自动展开目录
+</span></span><span style="display:flex;"><span>hidemeta: false # 是否隐藏文章的元信息，如发布日期、作者等
+</span></span><span style="display:flex;"><span>disableShare: true # 底部不显示分享栏
+</span></span><span style="display:flex;"><span>showbreadcrumbs: true #顶部显示路径
+</span></span><span style="display:flex;"><span>cover:
+</span></span><span style="display:flex;"><span>    image: &#34;&#34; #图片路径例如：posts/tech/123/123.png
+</span></span><span style="display:flex;"><span>    zoom: # 图片大小，例如填写 50% 表示原图像的一半大小
+</span></span><span style="display:flex;"><span>    caption: &#34;&#34; #图片底部描述
+</span></span><span style="display:flex;"><span>    alt: &#34;&#34;
+</span></span><span style="display:flex;"><span>    relative: false.
+</span></span></code></pre></div></li>
+<li>
+<p>（2）命令行或bash在项目目录下<code>sulv-hugo-papermod</code>打开后：hugo new posts/tools/hugo.md</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="5后续编写修改blog的提交操作">5.后续编写、修改blog的提交操作<a hidden class="anchor" aria-hidden="true" href="#5后续编写修改blog的提交操作">#</a></h2>
+<ul>
+<li>
+<p>（1）更新public的html文件。在在目录<code>sulv-hugo-papermod</code>下运行命令：</p>
+<ul>
+<li>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>hugo --theme<span style="color:#f92672">=</span>hugo-PaperMod --baseURL<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://Aliga123.github.io&#34;</span> --buildDrafts
+</span></span></code></pre></div></li>
+</ul>
+</li>
+<li>
+<p>（2）提交（不知为什么有时候提交不了，我不知道怎么弄，直接删掉仓库重新步骤3。</p>
+<ul>
+<li>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cd public
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>git add .
+</span></span><span style="display:flex;"><span>git commit -m <span style="color:#e6db74">&#34;add my notes&#34;</span>
+</span></span><span style="display:flex;"><span>git push -u origin master
+</span></span></code></pre></div></li>
+</ul>
+</li>
+<li>
+<p>出现如下的网络问题，多试几次就好了</p>
+<ul>
+<li>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>fatal: unable to access <span style="color:#e6db74">&#39;https://github.com/Aliga123/Aliga123.github.io.git/&#39;</span>: OpenSSL SSL_read: SSL_ERROR_SYSCALL, errno <span style="color:#ae81ff">0</span>
+</span></span></code></pre></div></li>
+</ul>
+</li>
+</ul>
+<h2 id="6结合typora将图片部署云端">6.结合Typora将图片部署云端<a hidden class="anchor" aria-hidden="true" href="#6结合typora将图片部署云端">#</a></h2>
+<p>一手参考资料：https://github.com/gohugoio/hugo/issues/1240#issuecomment-753077529</p>
+<ul>
+<li>（1）在偏好设置里面，设置Typora图片保存路径。</li>
+</ul>
+<p><img loading="lazy" src="img/image-20240729184117507.png" alt="image-20240729184117507"  />
+</p>
+<ul>
+<li>（2）假如我们的的hugo.md文件都写入tool分类下。要想需要能在云端显示，可以按照如下图这样设计，创建一个名为hugo文件夹，原hugo.md内容写道index.md文件里面，由于设置了骗保，图片会和index.md保存在同一目录下的img文件夹里面。</li>
+</ul>
+<p><img loading="lazy" src="img/image-20240729184230293.png" alt="image-20240729184230293"  />
+</p>
+
+
+        </div>
+        <div class="post-reward">
+            <div style="padding: 0 0 0 0; margin: 0 0 0 0; width: 100%; font-size:16px; text-align: center;">
+                <div id="QR" style="opacity: 0;">
+                    <div id="wechat" style="display: inline-block">
+                        <a class="fancybox" rel="group">
+                            <img id="wechat_qr" src="https://Aliga123.github.io/img/wechat_pay.jpg" alt="wechat_pay"></a>
+                        <p>微信</p>
+                    </div>
+                    <div id="alipay" style="display: inline-block">
+                        <a class="fancybox" rel="group">
+                            <img id="alipay_qr" src="https://Aliga123.github.io/img/alipay.jpg" alt="alipay"></a>
+                        <p>支付宝</p>
+                    </div>
+                </div>
+                <button id="rewardButton"
+                        onclick="
+                    var qr = document.getElementById('QR');
+                    if (qr.style.opacity === '0') {
+                        qr.style.opacity='1';
+                    } else {
+                        qr.style.opacity='0'
+                    }"
+                >
+                    <span>🧧 鼓励</span>
+                </button>
+            </div>
+        </div>
+
+        <footer class="post-footer">
+            
+<nav class="paginav">
+  <a class="prev" href="https://Aliga123.github.io/posts/ai-llm/%E4%BD%BF%E7%94%A8.env%E6%96%87%E4%BB%B6%E4%BF%9D%E5%AD%98key%E5%8F%98%E9%87%8F/">
+    <span class="title">« 上一页</span>
+    <br>
+    <span>使用.env文件保存key变量</span>
+  </a>
+  <a class="next" href="https://Aliga123.github.io/posts/tools/autodl/">
+    <span class="title">下一页 »</span>
+    <br>
+    <span>AutoDL</span>
+  </a>
+</nav>
+
+        </footer>
+    </div>
+
+<style>
+    .comments_details summary::marker {
+        font-size: 20px;
+        content: '👉展开评论';
+        color: var(--content);
+    }
+    .comments_details[open] summary::marker{
+        font-size: 20px;
+        content: '👇关闭评论';
+        color: var(--content);
+    }
+</style>
+
+
+<div>
+    <details class="comments_details">
+        <summary style="cursor: pointer; margin: 50px 0 20px 0;width: 130px;">
+            <span style="font-size: 20px;color: var(--content);">...</span>
+        </summary>
+        <div id="tcomment"></div>
+    </details>
+    <script src="https://cdn.staticfile.org/twikoo/1.5.8/twikoo.all.min.js">
+    </script>
+    <script>
+        twikoo.init({
+            envId:  null ,
+        el: "#tcomment",
+            lang: 'zh-CN',
+            region:  null ,
+        path: window.TWIKOO_MAGIC_PATH||window.location.pathname,
+        })
+    </script>
+</div>
+</article>
+</main>
+
+<footer class="footer">
+    <span>
+        Copyright
+        &copy;
+        2020-2024
+        <a href="https://Aliga123.github.io/" style="color:#939393;">aliga&#39;s Blog</a>
+        All Rights Reserved
+    </span>
+    <a href="https://beian.miit.gov.cn/" target="_blank" style="color:#939393;">填写自己的备案号</a>&nbsp;
+    <span>
+        <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=null"
+           style="display:inline-block;text-decoration:none;height:20px;color:#939393;">
+            <img src="%e5%a1%ab%e8%87%aa%e5%b7%b1%e7%9a%84%e5%85%ac%e5%ae%89%e5%9b%be%e6%a0%87%e9%93%be%e6%8e%a5" style="float:left;margin: 0px 5px 0px 0px;"/>
+            填自己的公网安备
+        </a>
+    </span>
+    <span id="busuanzi_container">
+        <span class="fa fa-user"></span> <span id="busuanzi_value_site_uv"></span>
+        <span class="fa fa-eye"></span> <span id="busuanzi_value_site_pv"></span>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <span class="topInner">
+        <svg class="topSvg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+            <path d="M12 6H0l6-6z"/>
+        </svg>
+        <span id="read_progress"></span>
+    </span>
+</a>
+
+<script>
+    document.addEventListener('scroll', function (e) {
+        const readProgress = document.getElementById("read_progress");
+        const scrollHeight = document.documentElement.scrollHeight;
+        const clientHeight = document.documentElement.clientHeight;
+        const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+        readProgress.innerText = ((scrollTop / (scrollHeight - clientHeight)).toFixed(2) * 100).toFixed(0);
+    })
+</script>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+</script>
+<script>
+    let mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        (function() {
+            document.cookie = "change-themes" + "="+ escape ("false");
+        })()
+
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    });
+</script>
+
+<script>
+    document.body.addEventListener('copy', function (e) {
+        if (window.getSelection().toString() && window.getSelection().toString().length > 50) {
+            let clipboardData = e.clipboardData || window.clipboardData;
+            if (clipboardData) {
+                e.preventDefault();
+                let htmlData = window.getSelection().toString() +
+                    '\r\n\n————————————————\r\n' +
+                    '版权声明：本文为「'+"aliga's Blog"+'」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。' +
+                '\r\n原文链接：' + location.href;
+                let textData = window.getSelection().toString() +
+                    '\r\n\n————————————————\r\n' +
+                    '版权声明：本文为「'+"aliga's Blog"+'」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。' +
+                '\r\n原文链接：' + location.href;
+                clipboardData.setData('text/html', htmlData);
+                clipboardData.setData('text/plain', textData);
+            }
+        }
+    });
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerText = '复制';
+
+        function copyingDone() {
+            copybutton.innerText = '已复制！';
+            setTimeout(() => {
+                copybutton.innerText = '复制';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                let text = codeblock.textContent +
+                    '\r\n————————————————\r\n' +
+                    '版权声明：本文为「'+"aliga's Blog"+'」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。' +
+                '\r\n原文链接：' + location.href;
+                navigator.clipboard.writeText(text);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) {}
+            selection.removeRange(range);
+        });
+
+        let language = codeblock.className.replaceAll("language-", "")
+        let macTool = document.createElement("div")
+        let macTool1 = document.createElement("div")
+        let macTool2 = document.createElement("div")
+        let macTool3 = document.createElement("div")
+        let languageType = document.createElement("div")
+        languageType.innerText = language
+        macTool.setAttribute('class', 'mac-tool')
+        macTool1.setAttribute('class', 'mac bb1')
+        macTool2.setAttribute('class', 'mac bb2')
+        macTool3.setAttribute('class', 'mac bb3')
+        languageType.setAttribute('class', 'language-type')
+        macTool.appendChild(macTool1)
+        macTool.appendChild(macTool2)
+        macTool.appendChild(macTool3)
+        macTool.appendChild(languageType)
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+            container.appendChild(macTool)
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+            container.appendChild(macTool)
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+            container.appendChild(macTool)
+        }
+    });
+</script>
+</body>
+
+</html>
